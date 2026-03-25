@@ -1,1 +1,0 @@
-# Automatically-Inferring-Teachers-Geometric-Content-Knowledge-A-Skills-Based-Approach
