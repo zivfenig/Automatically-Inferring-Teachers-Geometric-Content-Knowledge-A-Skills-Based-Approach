@@ -1,0 +1,41 @@
+# =============================================================================
+# Van Hiele Classification – AIED 2025
+# =============================================================================
+# Install with:
+#   pip install -r requirements.txt
+#
+# For GPU support (Method II), install PyTorch with CUDA separately:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu121
+# =============================================================================
+
+# ── Core numeric / data ──────────────────────────────────────────────────────
+numpy>=1.26.0
+pandas>=2.1.0
+
+# ── Machine learning utilities ────────────────────────────────────────────────
+scikit-learn>=1.4.0
+
+# ── PyTorch (CPU fallback; for CUDA see note above) ───────────────────────────
+torch>=2.2.0
+
+# ── Hugging Face stack (Method II: MTL fine-tuning) ───────────────────────────
+transformers>=4.40.0
+datasets>=2.18.0
+peft>=0.10.0                  # LoRA adapters for Gemma-3-4B
+accelerate>=0.29.0             # Required by Trainer / device_map="auto"
+
+# ── Embedding model (both methods) ───────────────────────────────────────────
+sentence-transformers>=2.7.0   # multilingual-e5-base for RAG retrieval & MTL init
+
+# ── Efficient vector storage / retrieval (Method I) ──────────────────────────
+pyarrow>=15.0.0                # .parquet embedding files
+
+# ── Google Cloud / Vertex AI (Method I: RAG with Gemini) ─────────────────────
+google-genai>=1.0.0            # google.genai client (Vertex AI)
+
+# ── Progress bars ─────────────────────────────────────────────────────────────
+tqdm>=4.66.0
+
+# ── Jupyter (optional – for notebooks) ───────────────────────────────────────
+jupyter>=1.0.0
+ipykernel>=6.29.0
