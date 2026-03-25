@@ -1,9 +1,9 @@
 # Automatically Inferring Teachers' Geometric Content Knowledge: A Skills-Based Approach
 
-**AIED 2025** · Ziv Fenigstein, Kobi Gal, Avi Segal, Osama Swidan, Inbal Israel, Hassan Ayoob  
+**AIED 2026** · Ziv Fenigstein, Kobi Gal, Avi Segal, Osama Swidan, Inbal Israel, Hassan Ayoob  
 Ben-Gurion University of the Negev · University of Edinburgh
 
-> This repository contains the code, data, and resources accompanying the paper *"Automatically Inferring Teachers' Geometric Content Knowledge: A Skills Based Approach"*, accepted at the **AIED 2025** conference.
+> This repository contains the code, data, and resources accompanying the paper *"Automatically Inferring Teachers' Geometric Content Knowledge: A Skills Based Approach"*, accepted at the **AIED 2026** conference.
 
 ---
 
@@ -220,6 +220,4 @@ If you use this code or data in your research, please cite:
 
 ---
 
-## License
 
-The code in this repository is released under the MIT License. The dataset is released for academic research use only.
