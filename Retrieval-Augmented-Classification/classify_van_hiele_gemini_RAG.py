@@ -26,7 +26,7 @@ RESULTS.mkdir(parents=True, exist_ok=True)
 
 # Imports (retriever & prompt builders)
 sys.path.insert(0, str(BASE / "rag_mechanism"))
-sys.path.insert(0, str(BASE / "prompts"))
+sys.path.insert(0, str(BASE / "prompts/HW_prompts"))
 
 from retrieve import RAGRetriever, RetrieverConfig
 from prompt_only_definitions import build_prompt_only_definitions
