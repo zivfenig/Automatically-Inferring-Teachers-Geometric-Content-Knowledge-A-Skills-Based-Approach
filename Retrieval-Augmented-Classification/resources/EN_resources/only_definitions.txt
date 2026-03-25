@@ -1,0 +1,24 @@
+Level 1 (Basic Level): Visualization
+The student bases their thinking on basic geometric concepts, such as simple shapes, primarily through visual observation of a shape as a whole, without explicitly referring to the properties of its components.
+They understand that there are differences and similarities between shapes.
+They understand the preservation of shape of figures in different positions.
+The student does not perceive properties as characterizing a concept.
+
+Level 2: Analysis
+The student understands that geometric concepts have properties, and that these properties can be used to distinguish between concepts. The necessary properties of a concept are established.
+The student does not see how properties relate to one another; does not formulate or use formal definitions; does not explain inclusion relations (subset); does not see the need for logical explanations of empirically discovered generalizations.
+
+Level 3: Abstraction
+The student is able to operate with relations between concepts or shapes (logical/hierarchical connections between geometric concepts, membership, inclusion, necessity, sufficiency). They logically order the properties of concepts (what follows from what); accept a logical partial order among shape types, including inclusion relations; use and develop abstract definitions (can use an existing definition or formulate one independently); and are able to distinguish between the necessity and sufficiency of a set of properties for determining a concept.
+The student does not grasp the meaning of proof in the axiomatic sense, and cannot yet create connections between networks of theorems (i.e., which theorem follows from another, etc.).
+
+Level 4: Deductive Reasoning
+The student thinks formally within a mathematical system, including undefined terms, axioms, a basic logical system, definitions, and theorems.
+They recognize the need for and structure of undefined terms, definitions, axioms, and theorems.
+They implicitly accept the axioms of Euclidean geometry.
+They rely on proof as the ultimate authority in deciding on the truth of a mathematical claim.
+Required: writes a complete proof based on what is given, or states claims together with their justifications.
+
+Level 5 – Abstract and Systemic Thinking (Rigor):
+At this level, geometry is understood at the level of a mathematician. The teacher understands that definitions are arbitrary and are not required to refer to any concrete realization. The object of thinking is deductive geometric systems, in which different axiomatic systems are compared. The teacher is able to study and understand non-Euclidean geometries, and understands the field of geometry as an abstract domain, which differs philosophically from non-mathematical fields.
+

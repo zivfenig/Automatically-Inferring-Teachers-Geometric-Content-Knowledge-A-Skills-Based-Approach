@@ -1,0 +1,995 @@
+idx,question,answer,final_decision,final_indicators
+,"The following shows three segments extending from the vertices of some triangle (the triangle is hidden). Is it possible to know with certainty the type of special segments (median, angle bisector, or altitude)?
+","They are altitudes because they are the only ones that can extend from the triangle
+",2,"2.01, 2.06"
+,"Is it possible to drag the vertices of the shapes so that each shape is a square? If so, drag them, and explain what you were looking for in each shape to arrive at a square. If not, explain why.
+","Yes, it needs 4 right angles
+",2,"2.01, 2.07"
+,"Prove that if in a quadrilateral the diagonals bisect each other, then the quadrilateral is a parallelogram.
+","Yes, it is possible to see this in the data of the new diagonal lengths and the semi-diagonals after each dragging operation.
+",2,2.01
+,"What are the properties of a rectangle?
+","A rectangle is a quadrilateral in which every two opposite sides are equal.
+",2,"2.01, 2.06, 2.08"
+,"In a different geometry, different from Euclidean geometry, a projective plane is a plane that satisfies the following 5 axioms:
+1. There is at least one line.
+2. Through any two distinct points passes a unique line.
+3. Any two lines intersect in at least one point.
+4. On each line there are at least 3 distinct points.
+5. There is no line on which all points lie.
+
+In this geometry, is the sum of the angles in a triangle 180°? Justify your answer.
+","Not because it creates for us a triangle but rather a square, and the sum of the angles is 360.
+",2,"2.01, 2.08"
+,"Dina claims: ""The two given shapes are parallelograms throughout the entire drag.""
+Is Dina correct? Explain.
+","I showed an example where I turned the parallelogram into a straight line. If we represent it in three dimensions, we will see a parallelogram.
+",2,"2.01, 2.09"
+,"The applet before you presents two shapes. Is it possible to drag the vertices of the shapes so that each shape is a square? If so, drag them, and explain what you looked for in each shape to arrive at a square. If not, explain why.
+","Yes, it's possible.
+I looked for sides equal to each other so that we would have a quadrilateral.
+The distance between every two points is equal.
+",2,"2.01, 2.07, 2.08, 2.14"
+,"Can there be a shape with four right angles that is not a rectangle? Explain.
+","Any quadrilateral with four right angles is a rectangle, but other polygons can be
+",2,"2.01, 2.02, 2.08"
+,"The applet before you shows two shapes. Is it possible to drag the vertices of the shapes so that each shape is a square? If so, drag them, and explain what you looked for in each shape to arrive at a square. If not, explain why.
+","It is impossible to convert the shapes to a square because shape 1 is a rectangle and shape 2 is a parallelogram, and the properties of these shapes are not the same as the properties of a square, which requires all its sides to be equal. If I try to convert the shapes to a square, then I have to change all the sides and the shape.
+",2,"2.01, 2.02"
+,"What are the properties of a rectangle?
+","2 pairs of sides that are parallel and equal to each other
+All angles are equal to 90
+",2,"2.01, 2.06, 2.08"
+,"Write at least 3 properties that exist in a rhombus.
+","1- The chords are perpendicular
+2- There are two pairs of equal sides
+3- The sum of the interior angles is equal to 360
+",2,"2.01, 2.06"
+,"What properties does an isosceles triangle have?
+","Two equal sides / legs
+The perpendicular to the base in an isosceles triangle is also an angle bisector and a median
+The angles adjacent to the legs are equal
+",2,"2.01, 2.06, 2.08"
+,"Write 2 properties that are common to all squares but not common to all rhombuses. Justify your choice.
+","Right angle
+",2,"2.01, 2.06"
+,"What properties does an isosceles triangle have?
+","1. Two equal legs
+2. A median bisects the vertex angle and the side it is drawn to in half
+3. Two equal angles
+",2,"2.01, 2.06, 2.08"
+,"Dina claims: ""The two given shapes are parallelograms throughout the entire drag.""
+Is Dina correct? Explain.
+","Yes - the extensions of the sides of the two quadrilaterals are parallel throughout the drag.
+",2,"2.01, 2.07, 2.08"
+,"Spherical geometry is a type of non-Euclidean geometry, dealing with the properties of straight lines on a sphere, that is, the surface of a ball. In spherical geometry, straight lines are ""great circles"" - those whose radius is equal to the radius of the sphere.
+In this geometry, is the sum of the angles in a triangle 180°? Justify your answer.
+","In spherical geometry, the sum of the angles in a triangle is greater than 180° because straight lines are great circles, and therefore the convex surface of the sphere causes the sum of the angles to increase. That is, the sides of the triangle are circles
+",5,"5.02, 5.12"
+,,"The equation |X| + |Y| = C| represents a rhombus centered at (0,0) and its vertices are on the axes at points (C,0) (0,C) (0,-C) (C,0-). The straight line, by definition, looks like a rhombus.
+",5,"5.01, 5.02, 5.12"
+,"Triangles ABC and A'B'C' are given as described in the figure. Based on the given information, can it be determined if the triangles are congruent? If so, prove it. If not, explain why.
+","It looks like a rhombus whose vertices are (C,0), (C,0-), (0,C), (0,-C)
+First line: y = x + c
+y = x - c
+y = -x-c
+y = -x+c
+",5,"5.02, 5.12"
+,"In a different geometry, different from Euclidean geometry, a projective plane is a plane that satisfies the following 5 axioms:
+1. There is at least one line.
+2. Through any two distinct points passes a unique line.
+3. Any two lines intersect in at least one point.
+4. On each line there are at least 3 distinct points.
+5. There is no line on which all points lie.
+
+In this geometry, is the sum of the angles in a triangle 180°? Justify your answer.
+","Because it is impossible to determine for a triangle that its angles are 180, since it is defined for us that two lines intersect at one point, and this is not possible in a triangle because there are two lines intersecting at two points.
+",5,"5.02, 5.12"
+,"Is it possible to drag the vertices of the shapes so that each shape is a square? If so, drag them, and explain what you were looking for in each shape to arrive at a square. If not, explain why.
+","Yes, I dragged and saw that it's possible, it really becomes a square
+",1,1.01
+,"Can the type of quadrilateral be determined with certainty based on your observations?
+","This is a quadrilateral
+",1,1.04
+,"Is it possible to drag the vertices of the shapes so that each shape is a square?
+","I don't know how to do this
+",1,1.04
+,"We define: A ""line"" on a sphere is a circle whose center is at the center of the sphere. How many ""lines"" pass through any two points on the sphere? Explain.
+","One Straight Line
+",1,1.04
+,"Can the type of quadrilateral be determined with certainty based on your observations?
+","I don't know, it's hard for me
+",1,1.04
+,"In a given geometric system, the axiom is:
+""Two lines are parallel if and only if they intersect at only one point.""
+Draw a possible parallelogram according to the given geometric system.
+","Cannot be drawn
+",1,1.04
+,"In a different geometry, different from Euclidean geometry, a projective plane is a plane that satisfies the following 5 axioms:
+1. There is at least one line.
+2. Through any two distinct points passes a unique line.
+3. Any two lines intersect in at least one point.
+4. On each line there are at least 3 distinct points.
+5. There is no line on which all points lie.
+
+In this geometry, is the sum of the angles in a triangle 180°? Justify your answer.
+","I lost it :)
+",1,1.04
+,"Can the type of quadrilateral be determined with certainty based on your observations?
+","I think it's a square
+",1,1.04
+,"Can the type of triangle be determined based on 2 or 3 segments? Explain.
+","This triangle is a triangle
+",1,1.04
+,"Can the type of triangle be determined based on 2 or 3 segments? Explain.
+","I don't know how to do this
+",1,1.04
+,"""The two given shapes are parallelograms throughout the entire drag.""
+Is the claim correct? Explain.""","The shapes are not parallelograms at all
+",1,1.04
+,"You are presented with two diagonals of a quadrilateral, but the shape itself is hidden.
+By dragging the vertices, examine the behavior of the diagonals and answer the following questions:
+Is it possible to determine the type of quadrilateral with certainty based on your observations?
+If you cannot determine the type of quadrilateral unequivocally, specify what additional data is required to identify the shape accurately?
+","Parallelogram
+",1,1.04
+,"You are presented with two diagonals of a quadrilateral, but the shape itself is hidden.
+By dragging the vertices, examine the behavior of the diagonals and answer the following questions:
+Is it possible to determine the type of quadrilateral with certainty based on your observations? Prove your claim.
+If you cannot determine the type of quadrilateral unequivocally, specify what additional data is required to identify the shape accurately?
+","The quadrilateral is a parallelogram according to the property of a parallelogram that the diagonals bisect each other.
+",3,"3.02, 3.03, 3.06, 3.18"
+,"Prove that in a rectangle the diagonals are equal to each other.
+","Congruent triangle KHJ to triangle HKI according to SAS.
+",3,3.10
+,"In a new geometric system, we define the relationships between points as follows:
+1. An infinite number of lines pass through two points.
+2. A line is defined as a circle that closes on itself.
+Is this system consistent (i.e., without internal contradiction in the definitions)? Justify your answer.
+","If a line is defined as a circle that closes on itself, then every single line should connect the two points in a unique and closed manner.
+In the first claim, an infinite number of lines pass through two points.
+This creates an internal contradiction in the definitions.
+",3,"3.02, 3.03, 3.10"
+,"Triangles ABC and A'B'C' are given as described in the figure. Based on the given information, can it be determined if the triangles are congruent? If so, prove it. If not, explain why.
+","Yes, because the angle in the orange triangle is also equal to 30 degrees, and then there is S.A.S.
+",3,"3.03, 3.10"
+,"""A rhombus is a special kite."" Is this statement correct? Justify your answer.
+","Yes, a kite is defined as a quadrilateral in which there are two pairs of equal adjacent sides, and a rhombus is a special case of a kite in which all four sides are equal.
+",3,3.18
+,"Prove that the diagonals of a kite are perpendicular to each other.
+","Via right angle and triangle congruence
+",3,3.10
+,"""A rhombus is a special kite."" Is this statement correct? Justify your answer.
+","Yes, in addition to the properties of a kite, a deltoid has another diagonal
+",3,"3.02, 3.04, 3.07, 3.18"
+,"Is every parallelogram a square? Is every square a parallelogram? Explain.
+","Every square is a parallelogram - yes, because in order for it to be a square, every two parallel sides must be equal, therefore every square is a parallelogram.
+But not every parallelogram is a square - because in a square all the angles are 90, and in a parallelogram it is not required that there be a 90 degree angle, therefore not every parallelogram is a square.
+",3,"3.02, 3.03, 3.07, 3.18"
+,"The applet before you presents two shapes. Is it possible to drag the vertices of the shapes so that each shape is a square? If so, drag them, and explain what you looked for in each shape to arrive at a square. If not, explain why.
+","In a rectangle, it is sufficient to reach equal sides; in a parallelogram, it is necessary to reach angles of 90 degrees; it is necessary to measure.
+",3,"3.02, 3.04, 3.07"
+,"Prove why in an obtuse triangle, the altitude to the side that forms the obtuse angle cannot be inside the triangle.
+","In an obtuse-angled triangle, the altitude to the side opposite the obtuse angle is outside the triangle because it must be dropped to the extended side.
+",3,"3.02, 3.10"
+,"Prove why in an obtuse triangle, the altitude to the side that forms the obtuse angle cannot be inside the triangle.
+","because if it were inside the triangle, then a triangle with a right angle and an obtuse angle would be created
+",3,"3.02, 3.03, 3.06, 3.10"
+,"Prove that if in a quadrilateral the diagonals bisect each other, then the quadrilateral is a parallelogram.
+","Since the diagonals bisect each other, congruent triangles are formed according to the Side-Angle-Side theorem. It follows that two lines in the quadrilateral are equal as a result of the congruence. We also obtain that in the quadrilateral two opposite sides are parallel and equal, and therefore the quadrilateral is a parallelogram.
+",3,3.10
+,"Is it possible to drag the vertices of the shapes so that each shape is a square? If so, drag them, and explain what you were looking for in each shape to arrive at a square. If not, explain why.
+","You can drag. I dragged so that in the parallelogram all sides are equal and all angles are right angles. In the rectangle, I dragged so that all sides are equal since the angles are already right angles.
+",3,3.09
+,"Is every parallelogram a square? Is every square a parallelogram? Explain.
+","Not every parallelogram is a square because it does not always have a right angle, but every square is a parallelogram.
+",3,"3.02, 3.03, 3.07, 3.18"
+,"Write 2 properties that are common to all squares but not common to all rhombuses. Justify your choice.
+","Four right angles.
+Diagonals are equal to each other
+",3,"3.02, 3.06"
+,"Is every parallelogram a square? Is every square a parallelogram? Explain.
+","Every square is a parallelogram, but not every parallelogram is a square.
+",3,"3.02, 3.03, 3.07, 3.18"
+,"Can there be a shape with four right angles that is not a rectangle? Explain.
+","A shape cannot have four right angles and not be a rectangle. According to the definition of a rectangle, it is a quadrilateral in which all angles are right angles and every two opposite sides are equal.
+",3,"3.01, 3.09"
+,"Is every parallelogram a square? Is every square a parallelogram? Explain.
+","Every square is a parallelogram because it has the properties of a parallelogram. But not every parallelogram is a square because it does not always have right angles.
+",3,"3.02, 3.03, 3.07, 3.18"
+,"""A rhombus is a special kite."" Is this statement correct? Justify your answer.
+","Yes, the definition of a kite also applies to a rhombus.
+",3,"3.01, 3.09"
+,"Triangle ABC is a right triangle (angle B is a right angle). Point M is the midpoint of side AC, and point D is on side AB. Points B,C,M,D are on a circle with center N. Prove: The length of segment AD is equal to the diameter of the circle.
+","The length of segment AD is always equal to the diameter of the circle because angle DMC is a right angle since quadrilateral BCMD is cyclic.
+It is also given that AM is equal to MC. So DM is an altitude in triangle ADC, which means that the triangle is isosceles. AD=DC
+",4,"4.05, 4.06"
+,"According to the sum of angles in a triangle, angle C' is 30° (180-70-80) and therefore the triangles are congruent according to the Side-Angle-Side congruence theorem.
+","Yes, the triangles are congruent, there is a correspondence between the sides AC= 'A'C= 12 and also AB='A'B=14 and angle CAB='A'C'B=30 because the angle A'C'B'= 180- 70-40=30 Sum of angles in a triangle is 180
+",4,"4.05, 4.06, 4.08"
+,"Prove that in a rectangle the diagonals are equal to each other.
+","By congruence of the two triangles resting on the base of the rectangle S-Z-S
+Side - common side
+Z - 90 degree angle
+S - two equal parallel sides in the rectangle
+Therefore, it turns out that the hypotenuse in the two triangles are equal and they are the diagonals
+",4,"4.05, 4.06, 4.08"
+,"Prove that the sum of the angles in a pentagon is 540°
+","We divide pentagon A into three triangles, then the sum of the angles is 180 plus 180 plus 180
+",4,"4.05, 4.06, 4.08"
+,"Spherical geometry is a type of non-Euclidean geometry, dealing with the properties of straight lines on a sphere, that is, the surface of a ball. In spherical geometry, straight lines are ""great circles"" - those whose radius is equal to the radius of the sphere.
+In this geometry, is the sum of the angles in a triangle 180°? Justify your answer.
+","Because the sides are not straight lines, but rather great circles, and then the angles will be larger than what you get with straight lines, meaning the sum of the angles will be greater than 180.
+",4,"4.06, 4.08"
+,"Triangle ABC is a right triangle (angle B is a right angle). Point M is the midpoint of side AC, and point D is on side AB. Points B,C,M,D are on a circle with center N. Prove: The length of segment AD is equal to the diameter of the circle.
+","Given that M is the midpoint of AC, then AM=MC
+The triangle ABC is a right triangle
+The points BCDM are on the circle. Point M is the midpoint of AC and there is a direct connection between M and N, the center of the circle. It can be assumed that the triangle ADM is also a right triangle, D equals 90, so AD is a diameter.
+",4,"4.05, 4.06"
+,"Prove that if in a quadrilateral the diagonals bisect each other, then the quadrilateral is a parallelogram.
+","Triangles ABE and CDE are congruent according to SAS (given sides of the diagonals and vertical angles), and then we obtain equal alternate angles, therefore the sides are parallel.
+",4,4.06
+,"Prove that the sum of angles in a pentagon is 540°
+","We divide the pentagon into 3 triangles, and then the sum of the angles is 180 times 3
+",4,4.06
+,"What are the properties of a rectangle?
+","Four right angles
+",3,3.04
+,"Write at least 3 properties that exist in a rhombus.
+","All sides are equal, each pair of opposite sides are parallel, the diagonals bisect each other, the diagonals are perpendicular, every two adjacent angles equal 180, the diagonals bisect the angles
+",2,"2.01, 2.06"
+,"Triangles ABC and A'B'C' are given as described in the figure. Based on the given information, can it be determined if the triangles are congruent? If so, prove it. If not, explain why.
+","Yes, it is possible according to side-angle-side, two triangles are congruent.
+Side 12, angle 30, side 14
+",4,"4.05, 4.06"
+,"Is it possible to drag the vertices of the shapes so that each shape is a square? If so, drag them, and explain what you were looking for in each shape to arrive at a square. If not, explain why.
+","Yes, all angles must be equal and opposite sides must be equal to each other.
+",2,"2.01, 2.02, 2.06, 2.07"
+,"A body can be both a prism and a box at the same time. Is this statement correct? Justify your opinion.
+","That sounds logical but I'm not sure why
+",1,1.04
+,"In a different geometry, different from Euclidean geometry, a projective plane is a plane that satisfies the following 5 axioms:
+ 1. There is at least one line.
+ 2. Through any two distinct points passes a unique line.
+ 3. Any two lines intersect in at least one point.
+ 4. On every line there are at least 3 distinct points.
+ 5. There is no line on which all points lie.
+ 
+ 
+ In this geometry, is the sum of the angles in a triangle 180°? Justify your answer.
+","The sum of the angles in a triangle is not equal to 180 because in projective geometry there are no parallel lines because any two lines intersect in at least one point, the triangles in the plane are not subject to the rules of Euclidean geometry, and therefore the sum of the angles in a triangle can be 180
+",5,"5.02, 5.12"
+,"Given a shape with four equal sides. Is it necessarily a rhombus?
+","No.
+It is not necessarily a rhombus
+",1,1.04
+,"A body can be both a prism and a box at the same time. Is this statement correct? Justify your opinion.
+","Maybe, I'm not sure
+",1,1.04
+,"In a new geometric system, a straight line is defined as the set of points (x,y) that satisfy the condition
+c equals the absolute value of x plus the absolute value of y.
+Where c is a constant positive real number.
+Describe what a ""straight line"" looks like in this system.
+","It looks like a rhombus
+",1,1.04
+,"What are the properties of a rectangle? List as many properties as possible.
+","A closed shape from the family of quadrilaterals, all its angles are equal to 90 degrees and each pair of sides are parallel. In other words, it can be said that it is a parallelogram with an angle of 90 degrees.
+In a rectangle, the diagonals are equal to each other and bisect each other. The opposite sides are equal to each other.
+",3,"3.02, 3.04, 3.07, 3.18"
+,"Write at least 3 properties that exist in a rhombus.
+","Four 90 degree angles
+All sides are equal
+The medians in a rhombus intersect
+Pairs of opposite sides are parallel
+",2,"2.01, 2.06, 2.08, 2.14"
+,"""The two given shapes are parallelograms throughout the entire drag.""
+Is the claim correct? Explain.
+","Yes, I dragged and saw that they are parallel
+",1,1.08
+,"What are the properties of a rectangle?
+","The diagonals are equal to each other and the opposite sides are equal
+",2,"2.01, 2.02, 2.06, 2.08"
+,"In a given geometric system, the axiom is:
+""Two lines are parallel if and only if they intersect at only one point.""
+Draw a possible parallelogram according to the given geometric system.
+","So according to the definition that any two lines intersect at only one point, then they are parallel
+and therefore we will draw two lines that intersect at only one point
+",3,"3.01, 3.03"
+,"What common properties exist for the two given shapes (properties that are maintained throughout any dragging)?
+","Opposite sides are parallel and equal, right angles
+",2,"2.01, 2.02, 2.06, 2.11"
+,"The following shows three segments extending from the vertices of some triangle (the triangle is hidden). Is it possible to know with certainty the type of special segments (median, angle bisector, or altitude)?
+","No, it is impossible to know, the angles and details about the bisector or perpendicular are missing.
+",2,2.01
+,"Prove that in an obtuse-angled triangle, the altitude to the side that forms an obtuse angle cannot be inside the triangle.
+",,1,1.04
+,"You are presented with two diagonals of a quadrilateral, but the shape itself is hidden.
+By dragging the vertices, examine the behavior of the diagonals and answer the following questions:
+Is it possible to determine the type of quadrilateral with certainty based on your observations?
+If you cannot determine the type of quadrilateral unequivocally, specify what additional data is required to identify the shape accurately?
+","Parallelogram because the diagonals bisect each other
+",3,3.04
+,"Triangles ABC and A'B'C' are given as described in the figure. Based on the given information, can it be determined if the triangles are congruent? If so, prove it. If not, explain why.
+","In the triangles, no - in the orange one, the third angle is indeed 30 by completing the sum of the angles of the triangle to 180, correct, but for the blue triangle, I can't know the sum of the base angles because according to ABC and A'B'C' they are not congruent - the order of the letters.
+",3,"3.06, 3.16"
+,"""A body can be both a polyhedron and a cube at the same time."" Is this statement correct? Justify your opinion.
+","The claim is correct, because a cube is a type of polyhedron in which all the faces are equal squares. Every cube is a polyhedron, but not every polyhedron is a cube.
+",3,"3.02, 3.03, 3.06, 3.18"
+,"What are the properties of a rectangle?
+","Like an A4 page
+",1,1.01
+,"The applet before you shows three segments coming from the vertices of some triangle (the triangle is hidden). Is it possible to determine the type of triangle (acute / right / obtuse) based on 2 or 3 segments? Explain.
+","No, because you need the value of an angle to determine the type of triangle.
+",2,"2.01, 2.07"
+,"Can the type of triangle be determined based on 2 or 3 segments? Explain.
+","2 segments - no, it's impossible because a third side is missing, and without it, it's impossible to know if a triangle is even formed and what type it is.
+3 segments - yes, because it's possible to compare the three lengths and determine if the triangle is equilateral, isosceles, or scalene.
+",2,"2.01, 2.08"
+,"""A body can be both a polyhedron and a cube at the same time."" Is this statement correct? Justify your opinion.
+","Yes, because a polyhedron is a three-dimensional geometric shape where all the outer shapes are surfaces, therefore a cube is a type of polyhedron, but a polyhedron cannot be a cube because a cube is empty of six vertices and must be in a specific shape.
+",3,"3.02, 3.07, 3.18"
+,"In a new geometric system, we define the relationships between points as follows:
+1. An infinite number of lines pass through two points.
+2. A line is defined as a circle that closes on itself.
+Is this system consistent (i.e., without internal contradiction in the definitions)? Justify your answer.
+","Yes, the first ratio does not contradict the second ratio.
+It is possible to draw infinite circles through two points.
+",5,5.12
+,"Prove that in an obtuse-angled triangle, the altitude to the side that forms an obtuse angle cannot be inside the triangle.
+","I showed a diagram above...
+Beyond that, perhaps by completing to a parallelogram and a rectangle..
+",2,2.01
+,"You are presented with two diagonals of a quadrilateral, but the shape itself is hidden.
+By dragging the vertices, examine the behavior of the diagonals and answer the following questions:
+Is it possible to determine the type of quadrilateral with certainty based on your observations?
+If you cannot determine the type of quadrilateral unequivocally, specify what additional data is required to identify the shape accurately?
+","This is a parallelogram
+",1,1.04
+,"The applet before you shows two shapes. Is it possible to drag the vertices of the shapes so that each shape is a square? If so, drag them, and explain what you looked for in each shape to arrive at a square. If not, explain why.
+","Yes, the vertices can be dragged and we will get a quadrilateral because both shapes are parallelograms.
+",3,"3.02, 3.20"
+,"What properties does an isosceles triangle have?
+","The angles between the equal sides and the base are equal, the altitude, the median, and the bisector of the vertex angle coincide.
+",2,"2.01, 2.06, 2.08"
+,"Assume that in kite ABCD, AB=AD and also CB=CD. The intersection point of the diagonals is O.
+Proof: We will prove the congruence of triangles ABC, ADC according to the S.S.S congruence theorem. Hence, angle BAC is equal to angle DAC. Now we will prove the congruence of triangle ABO with triangle ADO according to the S.A.S congruence theorem and we will get that angle AOB is equal to angle AOD. Adjacent angles equal to each other are right angles, and hence the diagonals of the kite are congruent.
+","Congruent Triangles
+",2,2.01
+,"Prove that the sum of the angles in a pentagon is 540°
+","We will transfer the shape to two shapes, a triangle and a rectangle, then the sum of the angles of the triangle is 180 and the angles of the rectangle are 360, then together it comes out to 540.
+",4,"4.05, 4.06"
+,"What are the properties of a rectangle?
+","4 right angles
+",3,3.04
+,"Prove that the sum of angles in a pentagon is 540°
+","We divide the pentagon (5 sides) into 3 triangles by drawing diagonals from one vertex:
+3*180 = 540
+",4,"4.05, 4.06, 4.08"
+,"You are presented with two diagonals of a quadrilateral, but the shape itself is hidden.
+By dragging the vertices, examine the behavior of the diagonals and answer the following questions:
+Is it possible to determine the type of quadrilateral with certainty based on your observations?
+If you cannot determine the type of quadrilateral unequivocally, specify what additional data is required to identify the shape accurately?
+","A parallelogram because the diagonals always bisect each other
+",3,"3.03, 3.04"
+,"Write 2 properties that are common to all squares but not common to all rhombuses. Justify your choice.
+","I don't know properties
+",1,1.04
+,"""A body can be both a prism and a box at the same time."" Is this statement correct? Justify your opinion.
+","Yes, because a cuboid has the properties of a prism
+",3,3.02
+,"What are the properties of a rectangle? List as many properties as possible.
+","Each two opposite sides are equal and parallel to each other
+Each two sides that meet create a right angle
+The diagonals bisect each other
+",2,"2.01, 2.02, 2.06, 2.08"
+,"""A body can be both a polyhedron and a cube at the same time."" Is this statement correct? Justify your opinion.
+","Yes, correct, because every cube is a polyhedron
+",3,"3.02, 3.18"
+,"What are the properties of a rectangle?
+","All angles are equal to 90°
+Opposite sides are equal and parallel
+The diagonals are equal in length and bisect each other
+",2,"2.01, 2.02, 2.06, 2.08"
+,"Prove that the sum of the angles in a pentagon is 540°
+","I don't know
+",1,1.04
+,"Triangles ABC and A'B'C' are given as described in the diagram. Based on the given information, can it be determined if the triangles are congruent to each other? If so, prove it. If not, explain why.
+","AC = AC' = 12
+∠ CAB = ∠ACB' = 30
+AB = CB' = 14
+",3,3.10
+,"You are presented with two diagonals of a quadrilateral, but the shape itself is hidden.
+By dragging the vertices, examine the behavior of the diagonals and answer the following questions:
+Is it possible to determine the type of quadrilateral with certainty based on your observations? Prove your claim.
+If you cannot determine the type of quadrilateral unequivocally, specify what additional data is required to identify the shape accurately?
+","In my opinion, it could be a trapezoid but not necessarily.
+I can determine the shape if I have the points themselves ABCD.
+",2,2.02
+,"Write 2 properties that are common to all squares but not common to all rhombuses. Justify your choice.
+","All angles are right angles and also 90 degrees
+The diagonals are equal in length
+The square is a special rhombus, only all angles are right angles and the diagonals are equal in length
+",3,"3.02, 3.03, 3.06, 3.07, 3.09, 3.18"
+,"You are presented with two diagonals of a quadrilateral, but the shape itself is hidden.
+By dragging the vertices, examine the behavior of the diagonals and answer the following questions:
+Is it possible to determine the type of quadrilateral with certainty based on your observations?
+If you cannot determine the type of quadrilateral unequivocally, specify what additional data is required to identify the shape accurately?
+","Parallelogram
+",1,1.04
+,"Can the type of triangle be determined based on 2 or 3 segments? Explain.
+","Maybe if you see it more clearly
+",1,1.04
+,"Prove that in a rectangle the diagonals are equal to each other.
+","Congruent Triangles
+",3,3.10
+,"In a different geometry, different from Euclidean geometry, a projective plane is a plane that satisfies the following 5 axioms:
+1. There is at least one line.
+2. Through any two distinct points passes a unique line.
+3. Any two lines intersect in at least one point.
+4. On every line there are at least 3 distinct points.
+5. There is no line on which all points lie.
+
+In this geometry, is the sum of the angles in a triangle 180°? Justify your answer.
+","In non-Euclidean geometry, not all the axioms of Euclidean geometry hold (such as parallels), and therefore there is no requirement that the sum of angles in a triangle be 180°.
+",5,"5.02, 5.12"
+,"Prove why in an obtuse triangle, the altitude to the side that forms the obtuse angle cannot be inside the triangle.
+","because if it were inside the triangle, a triangle with an obtuse and right angle would be created, and that doesn't make sense
+",3,"3.02, 3.03, 3.06, 3.10"
+,"Write at least 3 properties that exist in a rhombus.
+","1. All its sides are equal
+2. Its diagonals are perpendicular to each other
+3. Each angle is equal to the angle opposite it
+",2,"2.01, 2.08"
+,"Prove that the diagonals of a kite are perpendicular to each other.
+","Triangles ABC and ADC are congruent according to S.S.S (there is a common side), and then we get that the left angle A is equal to the right angle A, and therefore there is an isosceles triangle with an angle bisector of the vertex angle, so it is also an altitude.
+",4,"4.05, 4.06"
+,"Prove that if in a quadrilateral the diagonals bisect each other, then the quadrilateral is a parallelogram.
+","I can prove this according to triangle congruence to arrive at the fact that the sides are equal, and if the opposite sides are equal to each other, then this is a parallelogram...
+",3,3.10
+,"Is it possible to drag the vertices of the shapes so that each shape is a square?
+","I haven't tried
+",1,1.04
+,"Prove that the base angles of an isosceles trapezoid are equal to each other.
+","We drop a height H1 from vertex D to BC
+We drop a height H2 from vertex A to BC
+DA ∥ AB holds because they are bases in a trapezoid
+Therefore, the angle DKA is equal to the angle MKA, which are equal to 90
+And the angle KMD is equal to 90 because H2 is a height, therefore the fourth angle in the quadrilateral DMKA is equal to 90
+Therefore, the resulting quadrilateral is a rectangle, meaning AK equals DM
+Additionally, it is given that the trapezoid is isosceles, therefore AB = DC
+Therefore, SIN of the angle ABK equals AK divided by AB
+And SIN of the angle DCB equals DM divided by DC
+Therefore, the two angles are equal -> the base angles are equal
+",4,4.06
+,"The applet before you presents three segments extending from the vertices of an arbitrary triangle (the triangle is hidden). Is it possible to know with certainty the type of special segments (median, angle bisector, or altitude)?
+","Yes, according to the applet, it is possible to know what each side is.
+For example, a side that comes out of point A is a height because it is a straight line and its shape cannot be changed.
+",2,"2.01, 2.03"
+,"You are presented with two diagonals of a quadrilateral, but the shape itself is hidden.
+By dragging the vertices, examine the behavior of the diagonals and answer the following questions:
+Is it possible to determine the type of quadrilateral with certainty based on your observations?
+If you cannot determine the type of quadrilateral unequivocally, specify what additional data is required to identify the shape accurately?
+","parallelogram because the diagonals always meet in the middle
+",3,"3.03, 3.04, 3.19"
+,"Triangles ABC and A'B'C' are given as described in the diagram. Based on the given information, can it be determined if the triangles are congruent to each other? If so, prove it. If not, explain why.
+","Yes, according to ASA because the third angle is also 30
+",3,"3.06, 3.10"
+,"""A rhombus is a special kite."" Is this statement correct? Justify your answer.
+","Yes, because its diagonals are perpendicular to each other
+",2,"2.01, 2.06, 2.07, 2.08, 2.14"
+,"We define: A ""line"" on a sphere is a circle whose center is at the center of the sphere. How many ""lines"" pass through any two points on the sphere? Explain.
+","Between any two points on the sphere, an infinite number of ""straight"" circles pass.
+Example: The first circle has a diameter that is the line between the first point and the second point.
+The second circle has a line between the first point and the second point that is a chord and not a diameter, and so on.
+",3,3.22
+,"In a new geometric system, we define the relationships between points as follows:
+1. An infinite number of lines pass through two points.
+2. A line is defined as a circle that closes on itself.
+Is this system consistent (i.e., without internal contradiction in the definitions)? Justify your answer.
+","The lines are the circles that pass infinitely many times...
+I imagine a sphere where the highest and lowest points on it are passed through by infinitely many lines defined as circles...
+",5,"5.02, 5.12"
+,"Triangles ABC and A'B'C' are given as described in the diagram. Based on the given information, can it be determined if the triangles are congruent to each other? If so, prove it. If not, explain why.
+","They have two sides that are equal in size: 'AC=C'A' AB=C'B
+and the angle between them is also equal.
+According to SAS (Side-Angle-Side)
+",3,3.10
+,"""A body can be both a polyhedron and a cube at the same time."" Is this statement correct? Justify your opinion.
+","A cube is a type of polyhedron
+",3,"3.02, 3.07, 3.18"
+,"""The two given shapes are parallelograms throughout any drag"".
+Is the claim correct? Explain.
+","Yes, the claim is correct, it can be seen that after each dragging operation we get that every two parallel sides are equal to each other
+",3,3.04
+,"Two altitudes are dropped from the vertices of the shorter base of the trapezoid. Two right-angled triangles and a rectangle are formed (because it has two pairs of parallel sides + a right angle). The two right-angled triangles are congruent according to congruence theorems for right-angled triangles (two right-angled triangles that are equal in one leg and the hypotenuse, are congruent to each other). Therefore, the base angles are equal, as corresponding angles in congruent triangles.
+","Dropping two altitudes to a trapezoid creates two right-angled triangles in which the hypotenuse and the leg (the altitudes) are equal according to each triangle, so the triangles are congruent, and it follows that the angles of the legs are right angles.
+",4,"4.05, 4.06, 4.08"
+,"""The two given shapes are parallelograms throughout any drag"".
+Is the claim correct? Explain.
+","Yes, I dragged and saw that they are parallel
+",1,1.08
+,"""A body can be both a polyhedron and a cube at the same time."" Is this statement correct? Justify your opinion.
+","The body can be a polyhedron but will not always be a cube at the same time, so the claim is not correct.
+For example, a bottle is a polyhedron but not a cube.
+",3,3.07
+,"Prove that the base angles of an isosceles trapezoid are equal to each other.
+","ABCD is an isosceles trapezoid
+AD and BC are parallel to each other
+We draw altitudes from the two upper vertices to the lower base
+We call the intersection points of the altitudes with the base P and Q
+Two right-angled triangles are formed
+We will prove that the triangles APB and DQC:
+AP = DQ because they are altitudes in each triangle.
+BP = CQ
+Angles P = Q = 90
+Therefore, the triangles are congruent according to side-angle-side.
+We get that angles B = C
+Therefore, the base angles of an isosceles trapezoid are equal to each other.
+",4,"4.05, 4.06"
+,"You are presented with two diagonals of a quadrilateral, but the shape itself is hidden.
+By dragging the vertices, examine the behavior of the diagonals and answer the following questions:
+Is it possible to determine the type of quadrilateral with certainty based on your observations?
+If you cannot determine the type of quadrilateral unequivocally, specify what additional data is required to identify the shape accurately?
+","The quadrilateral parallelogram
+",1,1.04
+,"Write 2 properties that are common to all squares but not common to all rhombuses. Justify your choice.
+","Any two sides that meet create a 90-degree angle between them. Not all rhombuses have 90-degree angles.
+There are two pairs of parallel sides. In a rhombus, it is not necessary to have pairs of equal sides.
+",2,"2.01, 2.02, 2.06, 2.08, 2.11"
+,"In a different geometry, different from Euclidean geometry, a projective plane is a plane that satisfies the following 5 axioms:
+1. There is at least one line.
+2. Through any two distinct points passes a unique line.
+3. Any two lines intersect in at least one point.
+4. On each line there are at least 3 distinct points.
+5. There is no line on which all points lie.
+
+In this geometry, is the sum of the angles in a triangle 180°? Justify your answer.
+","Geometry is not suitable for regular geometry
+",1,1.04
+,"""A body can be both a prism and a box at the same time."" Is this statement correct? Justify your opinion.
+","Yes, because a box is also a prism
+",3,"3.02, 3.03, 3.07, 3.18, 3.21"
+,"You are presented with two diagonals of a quadrilateral, but the shape itself is hidden.
+By dragging the vertices, examine the behavior of the diagonals and answer the following questions:
+Is it possible to determine the type of quadrilateral with certainty based on your observations? Prove your claim.
+If you cannot determine the type of quadrilateral unequivocally, specify what additional data is required to identify the shape accurately?
+","The diagonals bisect each other, this is a property of a parallelogram. A rectangle can be created if the diagonals are equal, a rhombus if they are perpendicular.
+",3,"3.02, 3.03, 3.04, 3.06, 3.07"
+,"Prove that if in a quadrilateral the diagonals bisect each other, then the quadrilateral is a parallelogram.
+","Let's draw a segment between D and C
+Let's draw a segment between A and B
+Let's look at triangle AEB and triangle DEC
+Angle AEB equals angle DEC Explanation: vertical angles
+Side AE equals side EC Given in the question
+Side DE equals side EB Given in the question
+Therefore, according to (side, angle, side) the two triangles are congruent
+Therefore, angle DCA equals angle BAC
+And also angle CDE equals angle ABE
+Therefore, the alternate angles are equal if and only if AB is parallel to DC
+------
+The same idea to prove triangle ECB and triangle DEA
+",4,"4.05, 4.06, 4.08"
+,"""The two given shapes are parallelograms throughout any drag"".
+Is the claim correct? Explain.
+","Yes, and that's because one is a parallelogram and the other is a rectangle.
+",3,"3.07, 3.18"
+,"We define: A ""line"" on a sphere is a circle whose center is at the center of the sphere. How many ""lines"" pass through any two points on the sphere? Explain.
+","There are infinitely many lines because between the center of the circle and the surface of the sphere there are many points.
+",2,2.01
+,"Write 2 properties that are common to all squares but not common to all rhombuses. Justify your choice.
+","All angles are right angles (90)
+The two diagonals are equal
+",3,3.06
+,"Is it possible to drag the vertices of the shapes so that each shape is a square? If so, drag them, and explain what you were looking for in each shape to arrive at a square. If not, explain why.
+","No, after the dragging, the shapes show a rhombus and not a square, because in a square there must be right angles. To turn the shape into a square, you must make sure that all the angles are equal (90).
+",2,"2.01, 2.07, 2.08"
+,"In a new geometric system, we define the relationships between points as follows:
+1. An infinite number of lines pass through two points.
+2. A line is defined as a circle that closes on itself.
+Is this system consistent (i.e., without internal contradiction in the definitions)? Justify your answer.
+","At the basic level, yes, because an infinite number of circles pass through two points.
+",5,"5.02, 5.12"
+,"You are presented with two diagonals of a quadrilateral, but the shape itself is hidden.
+By dragging the vertices, examine the behavior of the diagonals and answer the following questions:
+Is it possible to determine the type of quadrilateral with certainty based on your observations? Prove your claim.
+If you cannot determine the type of quadrilateral unequivocally, specify what additional data is required to identify the shape accurately?
+","The resulting shape is a parallelogram because, as can be seen in the diagram, the diagonals bisect each other.
+",3,3.04
+,"What properties do a rectangle and a square have in common?
+","Pairs of parallel and equal sides
+Equal internal angles of 90
+The diagonals intersect each other and create equal parts
+",2,"2.01, 2.02, 2.11"
+,"Triangles ABC and A'B'C' are given as described in the figure. Based on the given information, can it be determined if the triangles are congruent? If so, prove it. If not, explain why.
+","The answer is yes
+AC is equal to A'C'
+And also AB is equal to A'B'
+And the angle A'C'B' is equal to (180 - 80 - 70) is equal to 30 which is equal to the angle CAB
+Therefore, according to (side, angle, side) the triangles are congruent to each other
+",4,"4.06, 4.08"
+,"Is it possible to drag the vertices of the shapes so that each shape is a square? If so, drag them, and explain what you were looking for in each shape to arrive at a square. If not, explain why.
+","Yes, it's possible, I dragged the shapes and got a square.
+",1,1.08
+,"Prove that in a rectangle the diagonals are equal to each other.
+","The triangles in a rectangle created by two different diagonals are congruent according to side-angle-side, the angle is the right angle, they have a common side and an additional side is equal according to the definition of a rectangle.
+",4,"4.06, 4.08"
+,"Can the type of triangle be determined based on 2 or 3 segments? Explain.
+","Yes, it depends on where and if they meet (inside the triangle, at its vertex, or not at all)
+",3,"3.02, 3.10"
+,"Can the type of triangle be determined based on 2 or 3 segments? Explain.
+","Yes, it is possible to determine based on 2 segments or 3 segments, if they meet at the end of a right-angled triangle, if they do not meet, an obtuse-angled triangle, if they meet, an acute-angled triangle.
+",3,"3.02, 3.03, 3.06"
+,"In a different geometry, different from Euclidean geometry, a projective plane is a plane that satisfies the following 5 axioms:
+1. There is at least one line.
+2. Through any two distinct points passes a unique line.
+3. Any two lines intersect in at least one point.
+4. On each line there are at least 3 distinct points.
+5. There is no line on which all points lie.
+
+In this geometry, is the sum of the angles in a triangle 180°? Justify your answer.
+","Yes
+There is at least one line. 2. A unique line passes through any two distinct points. 3. Any two lines intersect at least at one point.
+",1,1.04
+,"Is every parallelogram a square? Is every square a parallelogram? Explain.
+","Every square is a parallelogram because it satisfies all the properties of a parallelogram
+Every two opposite sides are equal
+Every two opposite angles are equal, and in particular equal to 90 degrees
+But not every parallelogram is a square because not necessarily all the angles of the parallelogram are equal to 90 and also all its sides are equal
+",3,"3.02, 3.03, 3.07, 3.18"
+,"Prove that the diagonals of a kite are perpendicular to each other.
+","We will prove that triangles AOD and AOB are congruent:
+Sides AB = AD (adjacent sides in a kite)
+Side AO is common to both triangles
+Angle: Angle BAO = DAO
+Triangles AOD and AOB are congruent according to SAS.
+We get that BOA = DOA and also BO = DO
+Consider triangle ABD, it is an isosceles triangle and AO bisects side BD in the triangle, therefore angle BOA = DOA = 90
+Therefore, the diagonals of the kite are perpendicular to each other
+",4,"4.05, 4.06, 4.08"
+,"Write at least 3 properties that exist in a rhombus.
+","The rhombus is a square - in which all sides are equal
+Also, the diagonals are perpendicular
+The diagonals also bisect each other into two equal segments
+",2,"2.01, 2.06, 2.08"
+,"A rhombus is a special kite. Is this statement correct? Justify your answer.
+","I don't know how to explain it
+",1,1.04
+,"Spherical geometry is a type of non-Euclidean geometry that deals with the properties of straight lines on a sphere, that is, the surface of a ball. In spherical geometry, straight lines are ""great circles"" - those whose radius is equal to the radius of the sphere.
+In this geometry, is the sum of the angles in a triangle 180°? Justify your answer.
+","No, because the meshulash in the new geometry is 3 circles.
+",5,"5.02, 5.12"
+,"Prove that the base angles of an isosceles trapezoid are equal to each other.
+","I can prove this by dropping altitudes from AD to CB
+so that triangles are formed that, according to two equal sides and an equal angle, I can prove similarity so that the angles are equal...
+",4,4.06
+,"Prove that if in a quadrilateral the diagonals bisect each other, then the quadrilateral is a parallelogram.
+","Yes, we have two pairs of congruent opposite triangles, we get alternate angles, we get that every two opposite sides are equal and parallel ----> quadrilateral is a parallelogram
+",4,"4.05, 4.06"
+,"""A body can be both a polyhedron and a cube at the same time."" Is this statement correct? Justify your opinion.
+","Yes, because every cube is also a polyhedron
+",3,"3.02, 3.18"
+,"Can the type of triangle be determined based on 2 or 3 segments? Explain.
+","If they intersect inside, then acute angle, and if at the vertex, then right angle, and if not at all, then obtuse angle.
+",3,"3.02, 3.03, 3.06, 3.10"
+,"The applet before you presents two shapes.
+What common properties exist for the two given shapes (properties that are preserved throughout any dragging)?
+","Every two opposite sides are parallel (the side and the side opposite it)
+Every two parallel sides are equal
+",2,"2.02, 2.11"
+,"Triangle ABC is a right triangle (angle B is a right angle). Point M is the midpoint of side AC, and point D is on side AB. Points B,C,M,D are on a circle with center N. Prove: The length of segment AD is equal to the diameter of the circle.
+","Given that DM bisects AC and also according to a property of a circle we get that B + M = 180, we get that DMC=90, we obtained that DM is both an altitude and a bisector and this holds in an isosceles triangle, therefore AC which is equal to DC which is a diameter.
+",4,4.06
+,"What are the properties of a rectangle? List as many properties as possible.
+","Every two opposite sides are parallel (a side and the side opposite it)
+Every two opposite sides are parallel and equal
+Every angle in a rectangle equals 90
+The diagonals bisect each other and are perpendicular
+",2,"2.01, 2.02, 2.06, 2.08"
+,,"A square whose diagonals lie on the axes, the diagonals meet at the origin and their length is 2C
+",5,"5.02, 5.12"
+,"What properties does an isosceles triangle have?
+","This triangle has 2 equal sides. The angle bisector between the equal sides is also a perpendicular and a median. The bisector of the equal sides is parallel to the side opposite it and equal to half of it.
+",2,"2.01, 2.06, 2.08"
+,"Triangle ABC is a right triangle (angle B is a right angle). Point M is the midpoint of side AC, and point D is on side AB. Points B, C, M, D are on a circle with center N. Prove: The length of segment AD is equal to the diameter of the circle.
+","DC is a diameter, because the inscribed angle that leans on it is a right angle. It follows that angle DMC is also right.
+In triangle ADC, segment DM is an altitude to AC, and it is also a median according to the given, therefore the triangle is isosceles, meaning AD=DC, but DC is a diameter, therefore AC is also equal to the diameter.
+",4,4.06
+,"Prove that the sum of angles in a pentagon is 540°
+","See drawing
+",1,1.04
+,"Prove that in a rectangle the diagonals are equal to each other.
+","The KHI triangle is a right-angled triangle (the KHI angle equals 90 because it is an angle in a rectangle)
+According to Pythagoras KI^2 = KH^2 + HI^2
+---
+The HIJ triangle is a right-angled triangle (the HIJ angle equals 90 because it is an angle in a rectangle)
+According to Pythagoras HI^2 + IJ^2 = HJ^2
+----
+KH equals IJ because two opposite sides are equal in a rectangle, therefore
+According to the two equations
+HI equals KI
+",4,"4.05, 4.06, 4.08"
+,"Triangle ABC is a right triangle (angle B is a right angle). Point M is the midpoint of side AC, and point D is on side AB. Points B,C,M,D are on a circle with center N. Prove: The length of segment AD is equal to the diameter of the circle.
+","The angle cdm=90, a circumferential angle subtended by the diameter, therefore in triangle adc:
+mc=am (given)
+dm is an altitude and a median to side ac, therefore the triangle is isosceles and then dc=ad
+",4,"4.05, 4.06"
+,"What are the properties of a rectangle?
+","Angles of 90 degrees (every two adjacent sides are perpendicular
+Every two opposite sides are parallel and equal
+Diagonals are equal and bisect each other
+",2,"2.01, 2.02, 2.06, 2.08"
+,"Prove that if in a quadrilateral the diagonals bisect each other, then the quadrilateral is a parallelogram.
+","If the diagonals bisect each other, then we have two pairs of similar triangles, meaning there are equal angles between every two similar triangles, and these are the same properties of alternate angles of two parallel lines intersected by a straight line.
+Therefore, we have parallel sides, and therefore the quadrilateral whose diagonals bisect each other is a parallelogram.
+",4,"4.05, 4.06, 4.08"
+,"""A body can be both a polyhedron and a cube at the same time."" Is this statement correct? Justify your opinion.
+","True, a cube is a polyhedron
+",3,"3.02, 3.07, 3.18"
+,"In a different geometry, different from Euclidean geometry, a projective plane is a plane that satisfies the following 5 axioms:
+1. There is at least one line.
+2. Through any two distinct points passes a unique line.
+3. Any two lines intersect in at least one point.
+4. On every line there are at least 3 distinct points.
+5. There is no line on which all points lie.
+
+In this geometry, is the sum of the angles in a triangle 180°? Justify your answer.
+","Yes, it is possible to have three lines such that every two intersect, and on each line there are 3 points.
+",2,"2.01, 2.08"
+,"In a new geometric system, a straight line is defined as a circle.
+Is it possible to define a triangle in this system? If so, how? If not, why?
+","Three Circles
+",1,1.04
+,"""The two given shapes are parallelograms throughout the entire drag.""
+Is the claim correct? Explain.
+","Yes, because the opposite sides are always equal
+",3,"3.03, 3.04"
+,"What are the properties of a rectangle? List as many properties as possible.
+","A rectangle is a quadrilateral in which every two parallel sides are equal.
+It has a 90° angle (one angle is sufficient), and then the rest are all 90°.
+The diagonals intersect and are equal.
+",3,3.02
+,"The following shows three segments extending from the vertices of some triangle (the triangle is hidden). Is it possible to know with certainty the type of special segments (median, angle bisector, or altitude)?
+","Yes, altitudes, if it is known that they are special segments in a triangle (angle bisector, median or altitude) only the extensions of the altitudes meet at one point in an obtuse-angled triangle, in contrast to angle bisectors and medians, the segments always meet for any type of triangle.
+",3,"3.02, 3.03, 3.06, 3.16"
+,"Is it possible to drag the vertices of the shapes so that each shape is a square? If so, drag them, and explain what you were looking for in each shape to arrive at a square. If not, explain why.
+","In the first shape, I couldn't change the angles of the shape and they are not equal to 90 degrees, therefore it is not possible to turn the first shape into a square.
+In the second shape, I checked the angles, each of them is equal to 90 degrees, so I changed the length of the segments so that they are all equal to 4.2 cm.
+And so we got a shape of a square, all 4 sides are equal and all its angles are equal to 90 degrees.
+",2,"2.01, 2.08"
+,"""The two given shapes are parallelograms throughout any drag"".
+Is the claim correct? Explain.
+","Yes, there are two pairs of equal opposite sides in both shapes.
+",2,"2.01, 2.02, 2.08, 2.11"
+,"""A body can be both a prism and a box at the same time."" Is this statement correct? Justify your opinion.
+","Yes, because every solid has properties of a prism and a box.
+",1,1.04
+,"What are the properties of a rectangle?
+","Opposite sides are parallel and equal, with right angles
+",2,"2.01, 2.02, 2.06, 2.08"
+,"A rhombus is a special kite. Is this statement correct? Justify your answer.
+","I don't know these concepts.
+",1,1.04
+,"What are the properties of a rectangle?
+","1- The opposite sides of the rectangle are equal in length and parallel to each other.
+2- All the angles of the rectangle are equal (90).
+",2,"2.01, 2.08"
+,"Triangles ABC and A'B'C' are given as described in the figure. Based on the given information, can it be determined if the triangles are congruent? If so, prove it. If not, explain why.
+","It can be determined that the triangles are congruent. ∠A'C'B'=180-80-70=30 and therefore equal to the angle CAB
+A'C'=CA=12' and C'B'=AB=14' therefore according to side-angle-side the triangles A'C'B'≅CAB
+",4,"4.06, 4.08"
+,"What are the properties of a rectangle?
+","Diagonals are equal to each other, opposite sides are equal to each other
+",2,"2.01, 2.06, 2.08"
+,"What are the properties of a rectangle? List as many properties as possible.
+","1. Angle equals 90
+2. Every two opposite sides are parallel to each other and equal
+3. Diagonals are equal
+",2,"2.01, 2.08"
+,"You are presented with two diagonals of a quadrilateral, but the shape itself is hidden.
+By dragging the vertices, examine the behavior of the diagonals and answer the following questions:
+Is it possible to determine the type of quadrilateral with certainty based on your observations? Prove your claim.
+If you cannot determine the type of quadrilateral unequivocally, specify what additional data is required to identify the shape accurately?
+","The medians are divided into two equal segments, this is a property of a parallelogram, correct, but I need another piece of information to identify the correct shape - for example, either two parallel sides are equal or alternate angles are equal - a property through which I can identify parallelograms.
+",2,"2.01, 2.07, 2.08, 2.14"
+,"Prove that the diagonals of a kite are perpendicular to each other.
+","Triangles ADC and ABC are congruent, by SSS.
+It follows that AC is an angle bisector.
+Therefore, triangles AOD and AOB are congruent by SAS.
+Therefore, we can conclude that AO is perpendicular in the isosceles triangle ABD, so it is also an altitude.
+",4,"4.06, 4.08"
+,"In a different geometry, different from Euclidean geometry, a projective plane is a plane that satisfies the following 5 axioms:
+1. There is at least one line.
+2. Through any two distinct points passes a unique line.
+3. Any two lines intersect in at least one point.
+4. On each line there are at least 3 distinct points.
+5. There is no line on which all points lie.
+
+In this geometry, is the sum of the angles in a triangle 180°? Justify your answer.
+","Yes, the sum of the angles is 180.
+",1,1.04
+,"Prove that the sum of the angles in a pentagon is 540°
+","In every pentagon, the sum of the interior angles is 540 because it can be divided into three triangles, each triangle equals 180.
+And the pentagon yields 3 triangles, so 3*180= 540
+",4,"4.06, 4.08"
+,"In a given geometric system, the axiom is:
+""Two lines are parallel if and only if they intersect at only one point.""
+Draw a possible parallelogram according to the given geometric system.
+","The two lines will be like the shape of an X
+",3,3.22
+,"Is every parallelogram a square? Is every square a parallelogram? Explain.
+","Yes, every square is a parallelogram because it satisfies all the properties of a parallelogram.
+",3,"3.02, 3.03, 3.07, 3.18"
+,"You are presented with two diagonals of a quadrilateral, but the shape itself is hidden.
+By dragging the vertices, examine the behavior of the diagonals and answer the following questions:
+Is it possible to determine the type of quadrilateral with certainty based on your observations?
+If you cannot determine the type of quadrilateral unequivocally, specify what additional data is required to identify the shape accurately?
+","The first diagonal bisects the second diagonal
+And the second diagonal bisects the first diagonal
+Therefore, the quadrilateral is a parallelogram
+",3,"3.03, 3.04"
+,"What properties do a rectangle and a square have in common?
+","90 degree angles
+The diagonals intersect and are equal
+Parallelograms: every two sides are parallel
+",2,2.11
+,"The two given shapes are parallelograms throughout the drag. Is the claim correct? Explain.
+","Maybe, but not sure
+",1,1.04
+,"We define: A ""line"" on a sphere is a circle whose center is at the center of the sphere. How many ""lines"" pass through any two points on the sphere? Explain.
+","Infinitely
+Through any two points on the surface of a sphere, there passes exactly one great circle, unless they are opposite.
+",5,"5.02, 5.12"
+,"Can the type of triangle be determined based on 2 or 3 segments? Explain.
+","Yes, it can be determined based on 2 segments.
+",1,1.04
+,"Prove that if in a quadrilateral the diagonals bisect each other, then the quadrilateral is a parallelogram.
+","If the diagonals bisect each other in a quadrilateral, then it follows that there are two similar triangles, and according to this, we will have a parallelogram.
+",3,"3.02, 3.03, 3.06, 3.10"
+,"""A body can be both a prism and a box at the same time."" Is this statement correct? Justify your opinion.
+","A correct claim, a box is a type of prism and a prism is a body that has two identical bases and its side faces are straight.
+And if the base in the prism is rectangular, then it can also be a box.
+",3,"3.02, 3.18"
+,"We define: A ""line"" on a sphere is a circle whose center is at the center of the sphere. How many ""lines"" pass through any two points on the sphere? Explain.
+","A single line, between any two points on the surface of the sphere, will pass through only one circle whose center is at the center of the sphere, and it is considered a line.
+",5,"5.02, 5.12"
+,"where c is a constant positive real number.
+","In spherical geometry, the sum of the angles in a triangle is always greater than 180°, due to the unique properties of great circles and the positive curvature of the spherical surface.
+",5,"5.02, 5.12"
+,"""The two given shapes are parallelograms throughout the entire drag.""
+Is the claim correct? Explain.
+","Correct
+In the first shape, every two opposite sides are parallel and equal according to the value of the angles
+In the first shape, every two opposite sides are equal and every two parallel angles are equal, and in particular equal to 90
+Every rectangle is a parallelogram
+",3,"3.02, 3.18"
+,"Prove that if in a quadrilateral the diagonals bisect each other, then the quadrilateral is a parallelogram.
+","One of the properties for a quadrilateral to be a parallelogram is that the diagonals bisect each other.
+",2,"2.01, 2.07, 2.08"
+,"We define: A ""line"" on a sphere is a circle whose center is at the center of the sphere. How many ""lines"" pass through any two points on the sphere? Explain.
+","one line because every line that passes through the same points is the same line
+",2,2.01
+,"The following shows three segments extending from the vertices of some triangle (the triangle is hidden). Is it possible to know with certainty the type of special segments (median, angle bisector, or altitude)?
+","Yes, the only segment that can be outside the triangle is an altitude in an obtuse triangle
+and therefore, according to the segments, the type of segment can be determined
+",3,"3.02, 3.03, 3.06, 3.07"
+,"""A body can be both a polyhedron and a cube at the same time."" Is this statement correct? Justify your opinion.
+","In my opinion, yes.
+A cube is a type of polyhedron because it is a polyhedron in which all faces are equal squares, and therefore it meets all the definitions of a polyhedron.
+Every cube is a polyhedron, but not every polyhedron is a cube.
+",3,"3.02, 3.07, 3.18"
+,"What are the properties of a rectangle?
+","4 equal sides and four right angles
+",2,"2.01, 2.02, 2.06, 2.08"
+,"Prove that the base angles of an isosceles trapezoid are equal to each other.
+","GI=FH (Given), the height from F to HI is the same as the height from G (parallel lines). We obtain two right-angled triangles that are also congruent (can be proven using the Pythagorean theorem or using the altitude theorem of the triangle). From the congruence, we obtain that angle H=I
+",4,"4.05, 4.06, 4.08"
+,"Triangle ABC is a right triangle (angle B is a right angle). Point M is the midpoint of side AC, and point D is on side AB. Points B,C,M,D are on a circle with center N. Prove: The length of segment AD is equal to the diameter of the circle.
+","Angles m1 and m2 are equal to 90 degrees because they are adjacent to the diameter
+and segment am is equal to mc
+so dm is an altitude in an isosceles triangle, therefore ad=dc
+",3,3.10
+,"You are presented with two diagonals of a quadrilateral, but the shape itself is hidden.
+By dragging the vertices, examine the behavior of the diagonals and answer the following questions:
+Is it possible to determine the type of quadrilateral with certainty based on your observations? Prove your claim.
+If you cannot determine the type of quadrilateral unequivocally, specify what additional data is required to identify the shape accurately?
+","Parallelogram because every two opposite sides are equal.
+",3,3.04
+,"In a new geometric system, we define the relationships between points as follows:
+1. An infinite number of lines pass through two points.
+2. A line is defined as a circle that closes on itself.
+Is this system consistent (i.e., without internal contradiction in the definitions)? Justify your answer.
+","No, through two points it is possible to pass an infinite number of circles
+",3,3.22
+,"Write 2 properties that are common to all squares but not common to all rhombuses. Justify your choice.
+","A right angle and equal diagonals are found in every square but not in every rhombus.
+",3,"3.02, 3.06"
+,"A body can be both a prism and a box at the same time. Is this statement correct? Justify your opinion.
+","I don't know what a prism is.
+",1,1.04
+,"""A body can be both a polyhedron and a cube at the same time."" Is this statement correct? Justify your opinion.
+","Yes, because a cube is always also a polyhedron because it is composed of faces.
+",3,"3.02, 3.03, 3.07, 3.18"
+,"Prove that in an obtuse-angled triangle, the altitude to the side that forms an obtuse angle cannot be inside the triangle.
+","In a right-angled triangle, the two angles are acute, a height will create a right-angled triangle, and it is impossible to have an obtuse angle, and therefore not inside the triangle.
+",3,"3.02, 3.03, 3.06, 3.10"
+,"In a given geometric system, the axiom is:
+""Two lines are parallel if and only if they intersect at only one point.""
+Draw a possible parallelogram according to the given geometric system.
+","Hourglass
+",3,3.22
+,"What are the properties of a rectangle?
+","Every two opposite sides are parallel and equal
+All of its angles are 90 degrees
+The two diagonals are equal
+The diagonals bisect each other
+",2,"2.01, 2.08"
+,"You are presented with two diagonals of a quadrilateral, but the shape itself is hidden.
+By dragging the vertices, examine the behavior of the diagonals and answer the following questions:
+Is it possible to determine the type of quadrilateral with certainty based on your observations?
+If you cannot determine the type of quadrilateral unequivocally, specify what additional data is required to identify the shape accurately?
+","No, it is impossible to determine the type of quadrilateral.
+To know, I need the following details:
+Are the diagonals perpendicular?
+Are all sides equal in length?
+Are all the angles in the quadrilateral right angles?
+",2,"2.01, 2.08"
+,"What are the properties of a rectangle?
+","It has the shape of a rectangle
+",1,1.04
+,"We define: A ""line"" on a sphere is a circle whose center is at the center of the sphere. How many ""lines"" pass through any two points on the sphere? Explain.
+","It depends if we are talking about two antipodal points, then there will be infinite lines, otherwise only two lines.
+",5,"5.01, 5.02, 5.12"
+,"In a new geometric system, a straight line is defined as a circle.
+Is it possible to define a triangle in this system? If so, how? If not, why?
+","It is possible in this geometry to create, but certainly not the triangles in geometry that are known to be composed of three sides, because here the line itself is different and it is a circle and not a line - a side.
+",5,"5.02, 5.12"
+,"Prove that the sum of the angles in a pentagon is 540°
+","to divide it into a triangle and a quadrilateral
+",2,"2.01, 2.08"
+,"You are presented with two diagonals of a quadrilateral, but the shape itself is hidden.
+By dragging the vertices, examine the behavior of the diagonals and answer the following questions:
+Is it possible to determine the type of quadrilateral with certainty based on your observations?
+If you cannot determine the type of quadrilateral unequivocally, specify what additional data is required to identify the shape accurately?
+","Parallelogram because diagonals bisect each other
+",3,3.04
+,"Prove that in a rectangle the diagonals are equal to each other.
+","We will prove via triangle congruence that there is a side and an angle and another side that are equal in two triangles, and then we will derive from the triangle congruence that the diagonals are equal to each other.
+",3,3.10
+,"We define: A ""line"" on a sphere is a circle whose center is at the center of the sphere. How many ""lines"" pass through any two points on the sphere? Explain.
+","Collection of Lines
+",1,1.04
+,"Can the type of triangle be determined based on 2 or 3 segments? Explain.
+","Yes, it depends on where the altitudes intersect.
+If at a vertex of the triangle, then it is a right-angled triangle.
+If inside the triangle, then it is an acute-angled triangle.
+If they do not intersect, then it is an obtuse-angled triangle.
+",3,"3.02, 3.03, 3.06, 3.10"
+,"Triangle ABC is a right triangle (angle B is a right angle). Point M is the midpoint of side AC, and point D is on side AB. Points B,C,M,D are on a circle with center N. Prove: The length of segment AD is equal to the diameter of the circle.
+","Since angle DBC is a right angle subtended by segment AD, it follows that AD is a diameter of the circle.
+",4,"4.05, 4.06"
+,"Can the type of triangle be determined based on 2 or 3 segments? Explain.
+","If the segments intersect at the vertex of the triangle, then it is a right-angled triangle. If they do not intersect at all, then it is an obtuse-angled triangle. If they intersect inside the triangle, then it is an acute-angled triangle.
+",3,"3.02, 3.03, 3.06, 3.07"
+,"Triangle ABC is a right triangle (angle B is a right angle). Point M is the midpoint of side AC, and point D is on side AB. Points B,C,M,D are on a circle with center N. Prove: The length of segment AD is equal to the diameter of the circle.
+","I don't know
+",1,1.04
+,"You are presented with two diagonals of a quadrilateral, but the shape itself is hidden.
+By dragging the vertices, examine the behavior of the diagonals and answer the following questions:
+Is it possible to determine the type of quadrilateral with certainty based on your observations?
+If you cannot determine the type of quadrilateral unequivocally, specify what additional data is required to identify the shape accurately?
+","Parallelogram, because the two diagonals bisect each other.
+",3,"3.03, 3.04"
+,"Spherical geometry is a type of non-Euclidean geometry that deals with the properties of straight lines on a sphere, that is, the surface of a ball. In spherical geometry, straight lines are ""great circles"" - those whose radius is equal to the radius of the sphere.
+In this geometry, is the sum of the angles in a triangle 180°? Justify your answer.
+","The sum of the angles in a hexagon is greater than 180.
+",1,1.04
+,"What are the properties of a rectangle?
+",,1,1.04
+,"Prove that in a rectangle the diagonals are equal to each other.
+","In a rectangle, all angles are right angles 90
+Every two opposite sides are equal
+Two triangles are formed from the diagonals, and the two triangles are congruent according to side-angle-side
+",4,"4.05, 4.06"
+,"Is it possible to drag the vertices of the shapes so that each shape is a square? If so, drag them, and explain what you were looking for in each shape to arrive at a square. If not, explain why.
+","that all the angles are right angles and the sides
+",2,"2.01, 2.08"
