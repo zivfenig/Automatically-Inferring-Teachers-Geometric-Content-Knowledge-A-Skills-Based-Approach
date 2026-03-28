@@ -30,6 +30,7 @@ All other pipeline components (embedding model, retrieval procedure, K, LLM, tem
 
 ```
 Retrieval-Augmented-Classification/
+├── config_rag.py                         ← All paths, GCP credentials & hyperparameters
 ├── classify_van_hiele_gemini_RAG.py      ← Main entry point
 │
 ├── rag_mechanism/
@@ -75,20 +76,23 @@ gcloud auth application-default login
 
 ## Configuration
 
-Open `classify_van_hiele_gemini_RAG.py` and update:
+All paths, credentials, and hyperparameters are centralized in `config_rag.py`. Edit this file before running.
 
+**Step 1 — Set your GCP credentials:**
 ```python
 PROJECT_ID = "your-gcp-project-id"
 LOCATION   = "your-vertex-ai-region"   # e.g., "us-central1"
 ```
 
-Key experiment constants (already tuned as per the paper):
+**Step 2 — (Optional) Adjust experiment parameters:**
 
-| Constant | Value | Description |
+| Parameter | Default | Description |
 |---|---|---|
-| `K_VALUES` | `[5]` | Number of retrieved examples |
-| `ALPHA` | `0.8` | Answer weight in query embedding (80% answer, 20% question) |
-| `temperature` | `0.0` | Deterministic generation |
+| `FOLDS_TO_RUN` | `[1, 2, 3, 4, 5]` | Which folds to evaluate |
+| `K_VALUES_TO_TEST` | `[5]` | Number of retrieved examples per query |
+| `ALPHA` | `0.8` | Answer weight in query embedding (0 = question only, 1 = answer only) |
+| `TEMPERATURE` | `0.0` | Gemini generation temperature |
+| `MAX_OUTPUT_TOKENS` | `300` | Maximum tokens in Gemini's response |
 
 ---
 
@@ -99,7 +103,7 @@ cd Retrieval-Augmented-Classification
 python classify_van_hiele_gemini_RAG.py
 ```
 
-The `__main__` block defaults to Variant B, fold 1, K=5. To customise:
+The `__main__` block defaults to Variant B across all folds and K values configured in `config_rag.py`. To customise:
 
 ```python
 # Single fold, skills-aware (Variant B)
