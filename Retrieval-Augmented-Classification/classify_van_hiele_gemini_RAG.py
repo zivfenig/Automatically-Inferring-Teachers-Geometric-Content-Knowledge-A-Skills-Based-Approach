@@ -7,15 +7,16 @@ import pandas as pd
 from tqdm import tqdm
 from google import genai
 
-# ================= PATHS =================
-# Define BASE as the root of Retrieval-Augmented-Classification repo
-BASE = Path(__file__).parent  # Adjust if notebook is in a subfolder
+# ============================================================================
+# CONFIGURATION IMPORT
+# ============================================================================
+# All paths, credentials, and hyperparameters are managed in config_rag.py
+from config_rag import *
 
-# Prompt resources
-ONLY_DEFS_TXT = BASE / "resources" / "HE_resources" / "only_definitions.txt"
-OPERATIVE_DOC = BASE / "resources" / "HE_resources" / "Operative_doc_short_version.txt"
-INDICATORS_PY = BASE.parent / "Data-and-preprocess" / "HE_Skills_dictionary" / "indicators_dictionary.py"
+# Create the main results directory defined in the config
+RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
+<<<<<<< Updated upstream
 # Cross-validation structure
 FOLDS_DIR = BASE.parent / "Data-and-preprocess" / "HE_Van_Hiele_Dataset" / "folds"
 EMB_BASE = BASE / "embeddings_folds" / "HE_embedded_folds"
@@ -27,30 +28,27 @@ RESULTS.mkdir(parents=True, exist_ok=True)
 # Imports (retriever & prompt builders)
 sys.path.insert(0, str(BASE / "rag_mechanism"))
 sys.path.insert(0, str(BASE / "prompts/He_prompts"))
+=======
+# Add custom module paths to sys.path
+sys.path.insert(0, str(BASE_DIR / "rag_mechanism"))
+sys.path.insert(0, str(BASE_DIR / "prompts/HW_prompts"))
+>>>>>>> Stashed changes
 
 from retrieve import RAGRetriever, RetrieverConfig
 from prompt_only_definitions import build_prompt_only_definitions
 from prompt_full_doc_with_indicators import build_prompt_full_doc_with_indicators
 
-# ================= GCP / Vertex =================
-# Run locally before execution:
-#    gcloud auth application-default login
-# The PROJECT_ID and LOCATION should match your GCP setup where Vertex AI is enabled and the Gemini model is accessible.
-# We hide it for security, but you can set it as an environment variable or directly in the code for testing.
-PROJECT_ID = "xxxxx" # Replace with your GCP project ID
-LOCATION = "xxxxx"  # Replace with your Vertex AI region, e.g., "us-central1"
-MODEL_ID = "publishers/google/models/gemini-2.0-flash"
-
+# ============================================================================
+# INITIALIZE VERTEX AI CLIENT
+# ============================================================================
+# The client is configured using PROJECT_ID and LOCATION from the config file.
+# Ensure you have run 'gcloud auth application-default login' locally.
 client = genai.Client(vertexai=True, project=PROJECT_ID, location=LOCATION)
 
-# ================= EXPERIMENT CONFIG =================
-FOLDS = [1, 2, 3, 4, 5]
-K_VALUES = [5]
-ALPHA = 0.8
-TOPK_FOR_RETRIEVER = max(K_VALUES)
 
-
-# ================= HELPER FUNCTIONS =================
+# ============================================================================
+# HELPER FUNCTIONS
+# ============================================================================
 def parse_level_and_explanation(text: str) -> Tuple[str, str]:
     """Extract רמה and הסבר fields from Gemini output."""
     if not isinstance(text, str):
@@ -77,16 +75,15 @@ def parse_level_and_explanation(text: str) -> Tuple[str, str]:
     return level, expl
 
 
-def vertex_generate(system_text: str, user_text: str,
-                    max_output_tokens: int = 1000, temperature: float = 0.0) -> str:
-    """Run Vertex AI generation."""
+def vertex_generate(system_text: str, user_text: str) -> str:
+    """Run Vertex AI generation using settings from the config."""
     resp = client.models.generate_content(
         model=MODEL_ID,
         contents=[{"role": "user", "parts": [{"text": user_text}]}],
         config={
             "system_instruction": [{"text": system_text}],
-            "max_output_tokens": max_output_tokens,
-            "temperature": temperature,
+            "max_output_tokens": MAX_OUTPUT_TOKENS,
+            "temperature": TEMPERATURE,
         },
     )
     return resp.candidates[0].content.parts[0].text.strip()
@@ -117,7 +114,9 @@ def build_prompt_B(retriever, q: str, a: str, k: int, alpha: float) -> Dict[str,
     )
 
 
-# ================= CORE CLASSIFICATION FUNCTION =================
+# ============================================================================
+# CORE CLASSIFICATION FUNCTION
+# ============================================================================
 def classify_van_hiele(
     fold_id: int,
     variant: str = "B",
@@ -127,7 +126,7 @@ def classify_van_hiele(
     Classify Van Hiele levels for a fold using Gemini.
     
     Args:
-        fold_id: Fold number (1-5)
+        fold_id: Fold number (e.g., 1-5)
         variant: "A" (definitions only) or "B" (full doc + indicators)
         k: Number of retrieved examples
     
@@ -138,18 +137,18 @@ def classify_van_hiele(
         raise ValueError("variant must be 'A' or 'B'")
 
     test_csv = FOLDS_DIR / f"fold_{fold_id}_test.csv"
-    emb_parquet = EMB_BASE / f"fold_{fold_id}" / f"fold_{fold_id}_train_embeddings.parquet"
+    emb_parquet = EMB_BASE_DIR / f"fold_{fold_id}" / f"fold_{fold_id}_train_embeddings.parquet"
 
     if not test_csv.exists():
         raise FileNotFoundError(f"Missing test set: {test_csv}")
     if not emb_parquet.exists():
         raise FileNotFoundError(f"Missing embeddings: {emb_parquet}")
 
-    # Build retriever
+    # Build retriever using parameters from config
     retriever = RAGRetriever(RetrieverConfig(
         embeddings_path=emb_parquet,
         alpha_answer_weight=ALPHA,
-        top_k=TOPK_FOR_RETRIEVER,
+        top_k=TOP_K_FOR_RETRIEVER,
     ))
 
     # Load test data
@@ -161,7 +160,7 @@ def classify_van_hiele(
     BUILD_FN = build_prompt_A if variant == "A" else build_prompt_B
 
     # Results directory
-    out_dir = RESULTS / f"variant_{variant}" / f"fold_{fold_id}"
+    out_dir = RESULTS_DIR / f"variant_{variant}" / f"fold_{fold_id}"
     out_dir.mkdir(parents=True, exist_ok=True)
     out_csv = out_dir / f"gemini_fold{fold_id}_k{k}.csv"
 
@@ -185,9 +184,7 @@ def classify_van_hiele(
             prompt = BUILD_FN(retriever, q, a, k=k, alpha=ALPHA)
             system_text, user_text = prompt["system"], prompt["user"]
             
-            raw = vertex_generate(system_text, user_text,
-                                  max_output_tokens=300,
-                                  temperature=0.0)
+            raw = vertex_generate(system_text, user_text)
             level, expl = parse_level_and_explanation(raw)
 
             row = {
@@ -232,11 +229,13 @@ def classify_van_hiele(
     return result_df
 
 
-# ================= USAGE EXAMPLES =================
+# ============================================================================
+# MAIN EXECUTION BLOCK
+# ============================================================================
 if __name__ == "__main__":
-    # Example 1: Classify fold 1 with Variant B, k=5
-    results_b = classify_van_hiele(fold_id=1, variant="B", k=5)
+    print("🚀 Starting RAG classification process based on config_rag.py")
     
+<<<<<<< Updated upstream
     # Example 2: Classify fold 1 with Variant A, k=3
     # results_a = classify_van_hiele(fold_id=1, variant="A", k=3)
     
@@ -244,3 +243,18 @@ if __name__ == "__main__":
     # for fold_id in [1, 2, 3, 4, 5]:
     #     for k in [3, 5, 8, 10]:
     #         classify_van_hiele(fold_id=fold_id, variant="B", k=k)
+=======
+    # Example 1: Run all folds and K-values for Variant B
+    print("\n--- Running Variant B ---")
+    for fold_id in FOLDS_TO_RUN:
+        for k in K_VALUES_TO_TEST:
+            classify_van_hiele(fold_id=fold_id, variant="B", k=k)
+            
+    # Example 2: Run all folds and K-values for Variant A (optional, uncomment to run)
+    # print("\n--- Running Variant A ---")
+    # for fold_id in FOLDS_TO_RUN:
+    #     for k in K_VALUES_TO_TEST:
+    #         classify_van_hiele(fold_id=fold_id, variant="A", k=k)
+
+    print("\n✅ All experiments complete.")
+>>>>>>> Stashed changes

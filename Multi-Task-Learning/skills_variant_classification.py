@@ -31,48 +31,15 @@ from transformers import (
 from transformers.trainer_utils import get_last_checkpoint
 
 # ============================================================================
-# CONFIG: PATHS & HYPERPARAMETERS
+# CONFIGURATION IMPORT
 # ============================================================================
+# All paths and hyperparameters are managed in the config_skills_variant.py file.
+from config_skills_variant import *
 
-BASE_MODEL = "google/gemma-3-4b-it"
-FOLD_ID = 5
-VALIDATION_SPLIT = 0.15
-INDICATOR_LOSS_WEIGHT = 0.5
-INDICATOR_EMB_DIM = 512
-
-# Embedding model for initializing indicator embeddings
-EMBEDDING_MODEL_NAME = "intfloat/multilingual-e5-base"
-
-# Relative paths from repo
-DATA_BASE = Path(__file__).parent / ".." / "Data-and-preprocess"
-FOLDS_DIR = DATA_BASE / "HE_Van_Hiele_Dataset" / "folds"
-FOLD_TRAIN_CSV = FOLDS_DIR / f"fold_{FOLD_ID}_train.csv"
-FOLD_TEST_CSV = FOLDS_DIR / f"fold_{FOLD_ID}_test.csv"
-
-# Output directory
-RESULTS_BASE = Path(__file__).parent / "results" / "skills_variant"
-FOLD_OUTPUT_DIR = RESULTS_BASE / f"fold_{FOLD_ID}"
-CHECKPOINTS_DIR = FOLD_OUTPUT_DIR / "checkpoints"
-MODEL_DIR = FOLD_OUTPUT_DIR / "model"
-PREDICTIONS_DIR = FOLD_OUTPUT_DIR / "predictions"
-
+# Create output directories defined in the config
 os.makedirs(CHECKPOINTS_DIR, exist_ok=True)
 os.makedirs(MODEL_DIR, exist_ok=True)
 os.makedirs(PREDICTIONS_DIR, exist_ok=True)
-
-# Column names
-QUESTION_COL = "question"
-ANSWER_COL = "answer"
-LABEL_COL = "final_decision"
-INDICATORS_COL = "final_indicators"
-
-# Hyperparameters (consistent across variants)
-LEARNING_RATE = 2e-4
-WEIGHT_DECAY = 0.05
-NUM_EPOCHS = 30
-EARLY_STOPPING_PATIENCE = 4
-LORA_DROPOUT = 0.05
-HEAD_DROPOUT = 0.25
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Device: {device}")
@@ -85,7 +52,7 @@ if torch.cuda.is_available():
 # ============================================================================
 
 print("📚 Loading indicator definitions...")
-sys.path.insert(0, str(DATA_BASE / "HE_Skills_dictionary"))
+sys.path.insert(0, str(INDICATORS_DICT_PATH.parent))
 from indicators_dictionary import indicators_dict
 
 print(f"✅ Loaded {len(indicators_dict)} indicator definitions\n")
@@ -151,7 +118,7 @@ test_df[LABEL_COL] = test_df[LABEL_COL].astype(int)
 train_df, val_df = train_test_split(
     train_df,
     test_size=VALIDATION_SPLIT,
-    random_state=42,
+    random_state=SEED,
     stratify=train_df[LABEL_COL]
 )
 print(f"Train: {len(train_df)} | Validation: {len(val_df)} | Test: {len(test_df)}\n")
@@ -242,8 +209,6 @@ tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL)
 if tokenizer.pad_token is None:
     tokenizer.pad_token = tokenizer.eos_token
 
-max_length = 2048
-
 train_data = {
     "text": train_df["text"].tolist(),
     "labels": train_df["label"].tolist(),
@@ -269,7 +234,7 @@ def tokenize_with_indicators(batch):
         batch["text"],
         padding="max_length",
         truncation=True,
-        max_length=max_length,
+        max_length=MAX_SEQUENCE_LENGTH,
     )
     tokens["labels"] = batch["labels"]
     tokens["indicator_labels"] = batch["indicator_labels"]
@@ -301,7 +266,7 @@ class Gemma4BMultiTaskWithIndicatorAttention(nn.Module):
     
     def __init__(self, model_name: str, num_labels: int, num_indicators: int, 
                  definition_embeddings_dict: dict, indicator_codes_ordered: list, 
-                 indicator_to_id: dict, lora_r: int = 16, ind_emb_dim: int = 512):
+                 indicator_to_id: dict, lora_r: int, lora_alpha: int, ind_emb_dim: int):
         super().__init__()
         
         # Load base model with LoRA
@@ -313,7 +278,7 @@ class Gemma4BMultiTaskWithIndicatorAttention(nn.Module):
         
         lora_config = LoraConfig(
             r=lora_r,
-            lora_alpha=16,
+            lora_alpha=lora_alpha,
             target_modules=["q_proj", "v_proj"],
             lora_dropout=LORA_DROPOUT,
             bias="none",
@@ -329,14 +294,24 @@ class Gemma4BMultiTaskWithIndicatorAttention(nn.Module):
         # Initialize embedding weights from pre-encoded definitions
         if definition_embeddings_dict:
             embedding_weights = []
+            e5_emb_dim = 0
+            
+            # Dynamically get the E5 embedding dimension
+            if indicator_codes_ordered and indicator_codes_ordered[0] in definition_embeddings_dict:
+                e5_emb_dim = definition_embeddings_dict[indicator_codes_ordered[0]].shape[0]
+
+            # Create projection layer only if dimensions mismatch
+            proj = None
+            if e5_emb_dim > 0 and e5_emb_dim != ind_emb_dim:
+                proj = nn.Linear(e5_emb_dim, ind_emb_dim)
+
             for code in indicator_codes_ordered:
                 if code in definition_embeddings_dict:
                     emb = torch.tensor(definition_embeddings_dict[code], dtype=torch.float32)
-                    if emb.shape[0] != ind_emb_dim:
-                        # Project from E5 (768) to ind_emb_dim (512)
-                        proj = nn.Linear(emb.shape[0], ind_emb_dim)
+                    if proj:
                         emb = proj(emb.unsqueeze(0)).squeeze(0)
                     embedding_weights.append(emb)
+            
             if embedding_weights:
                 embedding_weights = torch.stack(embedding_weights)
                 self.ind_embed.weight.data = embedding_weights
@@ -474,14 +449,15 @@ model = Gemma4BMultiTaskWithIndicatorAttention(
     definition_embeddings_dict=definition_embeddings_dict,
     indicator_codes_ordered=indicator_codes_ordered,
     indicator_to_id=indicator_to_id,
-    lora_r=16,
+    lora_r=LORA_R,
+    lora_alpha=LORA_ALPHA,
     ind_emb_dim=INDICATOR_EMB_DIM,
 )
 model.to(device)
 print("✅ Model created\n")
 
 early_stopping = MinEpochEarlyStoppingCallback(
-    min_epochs=0,
+    min_epochs=MIN_EPOCHS,
     early_stopping_patience=EARLY_STOPPING_PATIENCE,
     early_stopping_threshold=0.0,
 )
@@ -489,9 +465,9 @@ early_stopping = MinEpochEarlyStoppingCallback(
 training_args = TrainingArguments(
     output_dir=str(CHECKPOINTS_DIR),
     learning_rate=LEARNING_RATE,
-    per_device_train_batch_size=2,
-    per_device_eval_batch_size=4,
-    gradient_accumulation_steps=2,
+    per_device_train_batch_size=BATCH_SIZE,
+    per_device_eval_batch_size=BATCH_SIZE * 2,
+    gradient_accumulation_steps=GRADIENT_ACCUMULATION_STEPS,
     num_train_epochs=NUM_EPOCHS,
     weight_decay=WEIGHT_DECAY,
     eval_strategy="epoch",
@@ -501,7 +477,7 @@ training_args = TrainingArguments(
     greater_is_better=True,
     logging_steps=10,
     save_total_limit=3,
-    seed=42,
+    seed=SEED,
     save_safetensors=False,
     bf16=torch.cuda.is_available(),
     max_grad_norm=1.0,
@@ -583,7 +559,8 @@ config_info = {
     "model_name": "Gemma4BMultiTaskWithIndicatorAttention",
     "base_model": BASE_MODEL,
     "model_size": "4B",
-    "lora_rank": 16,
+    "lora_rank": LORA_R,
+    "lora_alpha": LORA_ALPHA,
     "lora_dropout": LORA_DROPOUT,
     "head_dropout": HEAD_DROPOUT,
     "main_task": "Van Hiele Level Classification",
@@ -594,9 +571,9 @@ config_info = {
     "indicator_loss_weight": INDICATOR_LOSS_WEIGHT,
     "learning_rate": LEARNING_RATE,
     "weight_decay": WEIGHT_DECAY,
-    "batch_size": 2,
-    "gradient_accumulation_steps": 2,
-    "max_seq_length": max_length,
+    "batch_size": BATCH_SIZE,
+    "gradient_accumulation_steps": GRADIENT_ACCUMULATION_STEPS,
+    "max_seq_length": MAX_SEQUENCE_LENGTH,
     "num_epochs": NUM_EPOCHS,
     "early_stopping_patience": EARLY_STOPPING_PATIENCE,
     "validation_split": VALIDATION_SPLIT,
@@ -639,7 +616,7 @@ with open(test_metrics_path, "w", encoding="utf-8") as f:
 
 print("\n=== Generating Predictions ===")
 pred_output = trainer.predict(test_ds)
-logits = pred_output.predictions
+logits = pred_output.predictions[0] # Logits are in the first element of the tuple
 pred_ids = np.argmax(logits, axis=-1)
 gold_ids = pred_output.label_ids
 

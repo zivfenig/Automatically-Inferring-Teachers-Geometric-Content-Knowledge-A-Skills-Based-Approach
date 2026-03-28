@@ -10,7 +10,7 @@ import json
 import torch
 import numpy as np
 import pandas as pd
-import torch.nn as nn  
+import torch.nn as nn
 from pathlib import Path
 from typing import Dict
 from tqdm.auto import tqdm
@@ -32,42 +32,16 @@ from transformers.trainer_utils import get_last_checkpoint
 import torch.nn as nn
 
 # ============================================================================
-# CONFIG: PATHS & HYPERPARAMETERS
+# IMPORT CONFIGURATION
 # ============================================================================
+from config_baseline import *
 
-BASE_MODEL = "google/gemma-3-4b-it"
-FOLD_ID = 5
-VALIDATION_SPLIT = 0.15
-
-# Relative paths from repo
-DATA_BASE = Path(__file__).parent / ".." / "Data-and-preprocess"
-FOLDS_DIR = DATA_BASE / "HE_Van_Hiele_Dataset" / "folds"
-FOLD_TRAIN_CSV = FOLDS_DIR / f"fold_{FOLD_ID}_train.csv"
-FOLD_TEST_CSV = FOLDS_DIR / f"fold_{FOLD_ID}_test.csv"
-
-# Output directory
-RESULTS_BASE = Path(__file__).parent / "results" / "baseline"
-FOLD_OUTPUT_DIR = RESULTS_BASE / f"fold_{FOLD_ID}"
-CHECKPOINTS_DIR = FOLD_OUTPUT_DIR / "checkpoints"
-MODEL_DIR = FOLD_OUTPUT_DIR / "model"
-PREDICTIONS_DIR = FOLD_OUTPUT_DIR / "predictions"
-
+# ============================================================================
+# CREATE OUTPUT DIRECTORIES
+# ============================================================================
 os.makedirs(CHECKPOINTS_DIR, exist_ok=True)
 os.makedirs(MODEL_DIR, exist_ok=True)
 os.makedirs(PREDICTIONS_DIR, exist_ok=True)
-
-# Column names
-QUESTION_COL = "question"
-ANSWER_COL = "answer"
-LABEL_COL = "final_decision"
-
-# Hyperparameters (consistent across variants)
-LEARNING_RATE = 2e-4
-WEIGHT_DECAY = 0.05
-NUM_EPOCHS = 30
-EARLY_STOPPING_PATIENCE = 4
-LORA_DROPOUT = 0.05
-HEAD_DROPOUT = 0.25
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Device: {device}")
@@ -93,7 +67,7 @@ test_df[LABEL_COL] = test_df[LABEL_COL].astype(int)
 train_df, val_df = train_test_split(
     train_df,
     test_size=VALIDATION_SPLIT,
-    random_state=42,
+    random_state=SEED,
     stratify=train_df[LABEL_COL]
 )
 print(f"Train: {len(train_df)} | Validation: {len(val_df)} | Test: {len(test_df)}\n")
@@ -141,7 +115,7 @@ tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL)
 if tokenizer.pad_token is None:
     tokenizer.pad_token = tokenizer.eos_token
 
-max_length = 2048
+max_length = MAX_SEQUENCE_LENGTH
 
 def tokenize_batch(batch):
     tokens = tokenizer(
@@ -176,7 +150,7 @@ print(f"✅ Tokenized: train={len(train_ds)}, val={len(val_ds)}, test={len(test_
 # ============================================================================
 
 class Gemma4BForSequenceClassification(nn.Module):
-    def __init__(self, model_name: str, num_labels: int, lora_r: int = 16):
+    def __init__(self, model_name: str, num_labels: int, lora_r: int):
         super().__init__()
         
         # Load base model
@@ -189,7 +163,7 @@ class Gemma4BForSequenceClassification(nn.Module):
         # LoRA configuration
         lora_config = LoraConfig(
             r=lora_r,
-            lora_alpha=16,
+            lora_alpha=LORA_ALPHA,
             target_modules=["q_proj", "v_proj"],
             lora_dropout=LORA_DROPOUT,
             bias="none",
@@ -253,16 +227,16 @@ def compute_metrics(eval_pred):
 # ============================================================================
 
 print("🏗️  Creating baseline model...")
-model = Gemma4BForSequenceClassification(BASE_MODEL, num_labels=num_labels, lora_r=16)
+model = Gemma4BForSequenceClassification(BASE_MODEL, num_labels=num_labels, lora_r=LORA_RANK)
 model.to(device)
 print("✅ Model created\n")
 
 training_args = TrainingArguments(
     output_dir=str(CHECKPOINTS_DIR),
     learning_rate=LEARNING_RATE,
-    per_device_train_batch_size=2,
+    per_device_train_batch_size=BATCH_SIZE,
     per_device_eval_batch_size=4,
-    gradient_accumulation_steps=2,
+    gradient_accumulation_steps=GRADIENT_ACCUMULATION_STEPS,
     num_train_epochs=NUM_EPOCHS,
     weight_decay=WEIGHT_DECAY,
     eval_strategy="epoch",
@@ -272,14 +246,14 @@ training_args = TrainingArguments(
     greater_is_better=True,
     logging_steps=10,
     save_total_limit=3,
-    seed=42,
-    save_safetensors=False,
-    bf16=torch.cuda.is_available(),
-    max_grad_norm=1.0,
-    dataloader_num_workers=0,
-    dataloader_pin_memory=False,
-    lr_scheduler_type="cosine",
-    warmup_steps=100,
+    seed=SEED,
+    save_safetensors=SAVE_SAFETENSORS,
+    bf16=USE_BF16,
+    max_grad_norm=MAX_GRAD_NORM,
+    dataloader_num_workers=DATALOADER_NUM_WORKERS,
+    dataloader_pin_memory=DATALOADER_PIN_MEMORY,
+    lr_scheduler_type=LR_SCHEDULER_TYPE,
+    warmup_steps=WARMUP_STEPS,
 )
 
 early_stopping = EarlyStoppingCallback(
@@ -347,16 +321,16 @@ config_info = {
     "model_name": "Gemma4BForSequenceClassification",
     "base_model": BASE_MODEL,
     "model_size": "4B",
-    "lora_rank": 16,
+    "lora_rank": LORA_RANK,
     "lora_dropout": LORA_DROPOUT,
     "head_dropout": HEAD_DROPOUT,
     "task": "Van Hiele Level Classification",
     "input_type": "Question + Answer only",
     "learning_rate": LEARNING_RATE,
     "weight_decay": WEIGHT_DECAY,
-    "batch_size": 2,
-    "gradient_accumulation_steps": 2,
-    "max_seq_length": max_length,
+    "batch_size": BATCH_SIZE,
+    "gradient_accumulation_steps": GRADIENT_ACCUMULATION_STEPS,
+    "max_seq_length": MAX_SEQUENCE_LENGTH,
     "num_epochs": NUM_EPOCHS,
     "early_stopping_patience": EARLY_STOPPING_PATIENCE,
     "validation_split": VALIDATION_SPLIT,
