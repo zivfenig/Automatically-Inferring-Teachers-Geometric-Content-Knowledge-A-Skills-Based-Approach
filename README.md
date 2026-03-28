@@ -1,31 +1,31 @@
 # Automatically Inferring Teachers' Geometric Content Knowledge: A Skills-Based Approach
-
+ 
 **AIED 2026** · Ziv Fenigstein, Kobi Gal, Avi Segal, Osama Swidan, Inbal Israel, Hassan Ayoob  
 Ben-Gurion University of the Negev · University of Edinburgh
-
+ 
 > This repository contains the code, data, and resources accompanying the paper *"Automatically Inferring Teachers' Geometric Content Knowledge: A Skills Based Approach"*, accepted at the **AIED 2026** conference.
-
+ 
 ---
-
+ 
 ## Overview
-
+ 
 This work presents an automated approach for classifying teachers' Van Hiele levels of geometric reasoning from open-ended, free-text responses in Hebrew. The central hypothesis is that explicitly integrating a structured **skills dictionary** — which decomposes each Van Hiele level into 33 fine-grained reasoning skills — significantly improves classification over baselines that rely on Van Hiele level definitions alone.
-
+ 
 Two classification methods are implemented and compared:
-
+ 
 | Method | Variant | Description |
 |---|---|---|
 | **Method I: RAG** | Baseline (A) | Retrieval-Augmented Generation with Van Hiele definitions only |
 | **Method I: RAG** | Skills-Aware (B) | RAG augmented with the full skills dictionary and annotated skill labels |
 | **Method II: MTL** | Baseline | Fine-tuned Gemma-3-4B with a classification head; no skills information |
 | **Method II: MTL** | Skills-Aware | Fine-tuned Gemma-3-4B with skills attention mechanism + auxiliary skills prediction task |
-
+ 
 Both skills-aware variants significantly outperform their respective baselines across all evaluation metrics (F1-macro, F1-weighted, QWK, MAE) in 5-fold cross-validation.
-
+ 
 ---
-
+ 
 ## Repository Structure
-
+ 
 ```
 AIED_REPO_FOLDER/
 │
@@ -47,6 +47,7 @@ AIED_REPO_FOLDER/
 │
 ├── Retrieval-Augmented-Classification/  ← Method I (RAG)
 │   ├── README.md
+│   ├── config_rag.py                  ← All paths, GCP credentials & hyperparameters
 │   ├── classify_van_hiele_gemini_RAG.py  ← Main entry point
 │   ├── rag_mechanism/
 │   │   └── retrieve.py                ← RAGRetriever class
@@ -63,23 +64,25 @@ AIED_REPO_FOLDER/
 │
 └── Multi-Task-Learning/               ← Method II (MTL)
     ├── README.md
+    ├── config_baseline.py             ← Paths & hyperparameters for the baseline variant
+    ├── config_skills_variant.py       ← Paths & hyperparameters for the skills-aware variant
     ├── skills_variant_classification.py  ← Skills-aware MTL training + evaluation
     ├── baseline_classification.py        ← Baseline training + evaluation
     └── evaluations_and_statistical_tests.ipynb
 ```
-
+ 
 ---
-
+ 
 ## Dataset
-
+ 
 The dataset consists of **226 question-response pairs** from **31 pre-service mathematics teachers** at three Israeli teacher-training institutions. Each pair is annotated with:
 - A **Van Hiele level** (1–5), assigned by two independent expert annotators (inter-rater Cohen's κ = 0.84)
 - The **reasoning skills** demonstrated in the response, selected from the 33-skill dictionary
-
+ 
 The dataset is written in **Hebrew**. An English translation is provided in `EN_Van_Hiele_Dataset/`.
-
+ 
 **Label distribution:**
-
+ 
 | Level | Name | % of Dataset |
 |---|---|---|
 | 1 | Visualization | 19% |
@@ -87,137 +90,171 @@ The dataset is written in **Hebrew**. An English translation is provided in `EN_
 | 3 | Informal Deduction | 35% |
 | 4 | Deduction | 14% |
 | 5 | Rigor | 7% |
-
+ 
 ---
-
+ 
 ## Setup
-
+ 
 ### Prerequisites
-
+ 
 - Python 3.10+
 - CUDA-capable GPU (required for Method II; ≥24 GB VRAM recommended for Gemma-3-4B)
 - A Google Cloud Platform project with Vertex AI enabled (required for Method I)
-
+ 
 ### Installation
-
+ 
 ```bash
 git clone https://github.com/<your-username>/<repo-name>.git
 cd <repo-name>
-
+ 
 pip install -r requirements.txt
 ```
-
+ 
 ---
-
+ 
 ## Running Method I: Retrieval-Augmented Classification
-
+ 
 Method I uses **Gemini 2.0 Flash** via Google Cloud Vertex AI. Before running:
-
+ 
 **Step 1 — Authenticate with GCP:**
 ```bash
 gcloud auth application-default login
 ```
-
-**Step 2 — Set your project credentials** in `Retrieval-Augmented-Classification/classify_van_hiele_gemini_RAG.py`:
+ 
+**Step 2 — Set your project credentials** in `Retrieval-Augmented-Classification/config_rag.py`:
 ```python
 PROJECT_ID = "your-gcp-project-id"
 LOCATION   = "your-vertex-ai-region"   # e.g., "us-central1"
 ```
-
-**Step 3 — Run classification:**
-
+ 
+**Step 3 — (Optional) Adjust hyperparameters** in `config_rag.py`:
+ 
+| Parameter | Default | Description |
+|---|---|---|
+| `FOLDS_TO_RUN` | `[1, 2, 3, 4, 5]` | Which folds to evaluate |
+| `K_VALUES_TO_TEST` | `[5]` | Number of retrieved examples per query |
+| `ALPHA` | `0.8` | Balance between question vs. answer similarity in retrieval (0 = question only, 1 = answer only) |
+| `TEMPERATURE` | `0.0` | Gemini generation temperature |
+| `MAX_OUTPUT_TOKENS` | `300` | Maximum tokens in Gemini's response |
+ 
+**Step 4 — Run classification:**
+ 
 Pre-computed `multilingual-e5-base` embeddings for all 5 folds are already included. Run from the repo root:
-
+ 
 ```bash
 cd Retrieval-Augmented-Classification
 python classify_van_hiele_gemini_RAG.py
 ```
-
-By default the script runs **Variant B (skills-aware)** on fold 1 with K=5. Edit the `__main__` block to run other configurations:
-
+ 
+By default the script runs **Variant B (skills-aware)** on all folds with K=5, as configured in `config_rag.py`. To run other configurations, edit `FOLDS_TO_RUN`, `K_VALUES_TO_TEST`, and the `variant` argument in the `__main__` block:
+ 
 ```python
 # Variant B (skills-aware) – single fold
 classify_van_hiele(fold_id=1, variant="B", k=5)
-
+ 
 # Variant A (baseline) – single fold
 classify_van_hiele(fold_id=1, variant="A", k=5)
-
+ 
 # Full 5-fold cross-validation, skills-aware
 for fold_id in [1, 2, 3, 4, 5]:
     classify_van_hiele(fold_id=fold_id, variant="B", k=5)
 ```
-
+ 
 Results are saved to `Retrieval-Augmented-Classification/results/gemini/variant_<A|B>/fold_<N>/`.
-
+ 
 The script supports **resuming**: if interrupted, re-running will skip already-processed rows.
-
+ 
 See `Retrieval-Augmented-Classification/README.md` for full details.
-
+ 
 ---
-
+ 
 ## Running Method II: Multi-Task Learning
-
+ 
 Method II fine-tunes **Gemma-3-4B-IT** locally. A CUDA GPU with at least 24 GB VRAM is required.
-
+ 
 **Step 1 — Accept the Gemma license** at [huggingface.co/google/gemma-3-4b-it](https://huggingface.co/google/gemma-3-4b-it), then authenticate:
 ```bash
 huggingface-cli login
 ```
-
-**Step 2 — Run the desired variant:**
-
+ 
+**Step 2 — (Optional) Adjust hyperparameters** in the relevant config file:
+ 
+- `config_baseline.py` — for the baseline variant
+- `config_skills_variant.py` — for the skills-aware variant
+ 
+Key parameters shared by both configs:
+ 
+| Parameter | Default | Description |
+|---|---|---|
+| `FOLD_ID` | `5` | Which fold to train/evaluate on (1–5) |
+| `LORA_RANK` | `16` | LoRA rank |
+| `LORA_ALPHA` | `16` | LoRA alpha scaling |
+| `LEARNING_RATE` | `2e-4` | AdamW learning rate |
+| `NUM_EPOCHS` | `30` | Maximum training epochs |
+| `EARLY_STOPPING_PATIENCE` | `4` | Epochs without improvement before stopping |
+| `BATCH_SIZE` | `2` | Per-device batch size |
+| `MAX_SEQUENCE_LENGTH` | `2048` | Maximum token length |
+ 
+Additional parameters in `config_skills_variant.py` only:
+ 
+| Parameter | Default | Description |
+|---|---|---|
+| `INDICATOR_LOSS_WEIGHT` | `0.5` | Weight of the auxiliary skills prediction loss |
+| `INDICATOR_EMB_DIM` | `512` | Embedding dimension for skill representations |
+| `EMBEDDING_MODEL_NAME` | `intfloat/multilingual-e5-base` | Encoder used for skill embeddings |
+ 
+**Step 3 — Run the desired variant:**
+ 
 Skills-aware variant:
 ```bash
 cd Multi-Task-Learning
 python skills_variant_classification.py
 ```
-
+ 
 Baseline variant:
 ```bash
 cd Multi-Task-Learning
 python baseline_classification.py
 ```
-
-Both scripts default to `FOLD_ID = 5`. Edit `FOLD_ID` at the top of the file to run a specific fold (1–5). Run each script once per fold to reproduce full 5-fold cross-validation.
-
+ 
+Both scripts read `FOLD_ID` from their respective config files. Edit `FOLD_ID` there to run a specific fold (1–5). Run each script once per fold to reproduce full 5-fold cross-validation.
+ 
 Results (metrics JSON + predictions CSV) are saved to `Multi-Task-Learning/results/<baseline|skills_variant>/fold_<N>/`.
-
+ 
 See `Multi-Task-Learning/README.md` for full details.
-
+ 
 ---
-
+ 
 ## Evaluation & Statistical Tests
-
+ 
 After collecting results across all folds, use the evaluation notebooks to aggregate metrics and reproduce the paired t-tests from the paper:
-
+ 
 - `Retrieval-Augmented-Classification/evaluations_and_statistical_tests.ipynb`
 - `Multi-Task-Learning/evaluations_and_statistical_tests.ipynb`
-
+ 
 ---
-
+ 
 ## Results Summary
-
+ 
 Average results across 5-fold cross-validation (from the paper):
-
+ 
 | Method | Variant | F1-macro | F1-weighted | QWK | MAE ↓ |
 |---|---|---|---|---|---|
 | RAG | Baseline (A) | 0.624 | 0.678 | 0.625 | 0.470 |
 | RAG | Skills-Aware (B) | **0.695** | **0.736** | **0.721** | **0.376** |
 | MTL | Baseline | 0.646 | 0.657 | 0.586 | 0.523 |
 | MTL | Skills-Aware | **0.725** | **0.725** | **0.717** | **0.403** |
-
+ 
 For MAE, lower is better. For all other metrics, higher is better.
-
+ 
 ---
-
+ 
 ## Citation
-
+ 
 If you use this code or data in your research, please cite:
-
+ 
 ```bibtex
-
+ 
 ```
-
+ 
 ---
-
-
