@@ -17,7 +17,7 @@ Both variants encode the question-response pair as a Hebrew prompt and pass it t
 2. **Auxiliary Skills Prediction Head**: A separate multi-label head predicts which skills are demonstrated in the response. It is trained jointly with the classification head using a combined loss:
 
    ```
-   L_total = (1 - λ) · L_level + λ · L_skills
+   L_total = L_level + λ · L_skills
    ```
 
    where `λ = 0.5` (equal weighting), `L_level` is cross-entropy, and `L_skills` is binary cross-entropy.
