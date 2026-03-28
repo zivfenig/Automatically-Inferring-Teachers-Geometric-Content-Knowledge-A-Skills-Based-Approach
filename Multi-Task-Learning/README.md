@@ -28,6 +28,8 @@ Both variants encode the question-response pair as a Hebrew prompt and pass it t
 
 | File | Description |
 |---|---|
+| `config_baseline.py` | Paths & hyperparameters for the baseline variant |
+| `config_skills_variant.py` | Paths & hyperparameters for the skills-aware variant |
 | `baseline_classification.py` | Baseline: classification head only, no skills |
 | `skills_variant_classification.py` | Skills-aware: attention + auxiliary skills head |
 | `evaluations_and_statistical_tests.ipynb` | Aggregate results and run statistical tests |
@@ -55,20 +57,35 @@ The model weights are downloaded automatically on first run (~8 GB).
 
 ## Configuration
 
-Both scripts share the same hyperparameters, set at the top of each file:
+All hyperparameters and paths are centralized in the config files. Edit the relevant file before running:
 
-| Parameter | Value | Description |
+- `config_baseline.py` — for the baseline variant
+- `config_skills_variant.py` — for the skills-aware variant
+
+**Parameters shared by both configs:**
+
+| Parameter | Default | Description |
 |---|---|---|
 | `BASE_MODEL` | `google/gemma-3-4b-it` | Base LLM |
-| `FOLD_ID` | `5` | Which fold to train/evaluate (change to 1–5) |
+| `FOLD_ID` | `5` | Which fold to train/evaluate (1–5) |
 | `LEARNING_RATE` | `2e-4` | AdamW learning rate |
 | `WEIGHT_DECAY` | `0.05` | L2 regularization |
 | `NUM_EPOCHS` | `30` | Maximum training epochs |
 | `EARLY_STOPPING_PATIENCE` | `4` | Patience on macro F1 |
+| `LORA_RANK` | `16` | LoRA rank |
+| `LORA_ALPHA` | `16` | LoRA alpha scaling |
 | `LORA_DROPOUT` | `0.05` | Dropout in LoRA adapters |
 | `HEAD_DROPOUT` | `0.25` | Dropout in classification heads |
-| `INDICATOR_LOSS_WEIGHT` (λ) | `0.5` | Skills-aware only: auxiliary loss weight |
-| `INDICATOR_EMB_DIM` | `512` | Skills-aware only: skill embedding dimension |
+| `BATCH_SIZE` | `2` | Per-device batch size |
+| `MAX_SEQUENCE_LENGTH` | `2048` | Maximum token length |
+
+**Additional parameters in `config_skills_variant.py` only:**
+
+| Parameter | Default | Description |
+|---|---|---|
+| `INDICATOR_LOSS_WEIGHT` (λ) | `0.5` | Auxiliary skills loss weight |
+| `INDICATOR_EMB_DIM` | `512` | Skill embedding dimension |
+| `EMBEDDING_MODEL_NAME` | `intfloat/multilingual-e5-base` | Encoder for skill embeddings |
 
 ---
 
@@ -86,7 +103,7 @@ cd Multi-Task-Learning
 python skills_variant_classification.py
 ```
 
-To run all 5 folds, change `FOLD_ID` at the top of the script and rerun. Each fold takes approximately 1–3 hours depending on GPU.
+To run all 5 folds, set `FOLD_ID` in the relevant config file and rerun. Each fold takes approximately 1–3 hours depending on GPU.
 
 Both scripts support **resuming** from the last checkpoint: if interrupted, simply rerun the same command and training will continue from where it left off.
 
